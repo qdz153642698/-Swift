@@ -1,0 +1,71 @@
+{
+"topPosters": [{
+		"url": "http://m.mtime.cn/#!/news/movie/1554550/",
+		"keyColor": "#888888",
+		"img": "http://img31.mtime.cn/mg/2016/04/19/164336.60890198.jpg",
+		"gotoPage": {
+			"gotoType": "gotonews",
+			"url": "http://m.mtime.cn/#!/news/movie/1554550/",
+			"parameters": {
+				"newId": 1554550
+			},
+			"parameters1": {
+				"newId": "1554550"
+			},
+			"isGoH5": false,
+			"relatedTypeUrl": ""
+		}
+	}, {
+		"url": "http://m.mtime.cn/#!/news/movie/1554511/",
+		"keyColor": "#888888",
+		"img": "http://img31.mtime.cn/mg/2016/04/18/095328.58897406.jpg",
+		"gotoPage": {
+			"gotoType": "gotonews",
+			"url": "http://m.mtime.cn/#!/news/movie/1554511/",
+			"parameters": {
+				"newId": 1554511
+			},
+			"parameters1": {
+				"newId": "1554511"
+			},
+			"isGoH5": false,
+			"relatedTypeUrl": ""
+		}
+	}, {
+		"url": "http://feature.mtime.cn/mobile/item/2016/summer/?app_index_banner3_summer",
+		"keyColor": "#fec2b5",
+		"img": "http://img31.mtime.cn/mg/2016/04/20/092010.45176859.jpg",
+		"gotoPage": {
+			"gotoType": "gotourl",
+			"url": "http://feature.mtime.cn/mobile/item/2016/summer/?app_index_banner3_summer",
+			"parameters": {},
+			"parameters1": {},
+			"isGoH5": false,
+			"relatedTypeUrl": ""
+		}
+	}, {
+		"url": "http://feature.mtime.cn/mobile/item/2016/face/?app_index_banner4_face",
+		"keyColor": "#888888",
+		"img": "http://img31.mtime.cn/mg/2016/04/19/164646.90931541.jpg",
+		"gotoPage": {
+			"gotoType": "gotourl",
+			"url": "http://feature.mtime.cn/mobile/item/2016/face/?app_index_banner4_face",
+			"parameters": {},
+			"parameters1": {},
+			"isGoH5": false,
+			"relatedTypeUrl": ""
+		}
+	}, {
+		"url": "http://m.mtime.cn/#!/mall/index/",
+		"keyColor": "#888888",
+		"img": "http://img31.mtime.cn/mg/2016/04/08/195528.10653431.jpg",
+		"gotoPage": {
+			"gotoType": "gotomallindex",
+			"url": "http://m.mtime.cn/#!/mall/index/",
+			"parameters": {},
+			"parameters1": {},
+			"isGoH5": false,
+			"relatedTypeUrl": ""
+		}
+	}]
+}

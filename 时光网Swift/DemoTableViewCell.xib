@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="DemoTableViewCell" customModule="时光网Swift" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hJP-eG-IXf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="hJP-eG-IXf" secondAttribute="bottom" id="3hV-2T-wW7"/>
+                    <constraint firstItem="hJP-eG-IXf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="GQU-uY-tMm"/>
+                    <constraint firstItem="hJP-eG-IXf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="iYx-di-Kjw"/>
+                    <constraint firstAttribute="trailing" secondItem="hJP-eG-IXf" secondAttribute="trailing" id="jl6-Cq-22f"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="showImageView" destination="hJP-eG-IXf" id="yZQ-cq-NJn"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

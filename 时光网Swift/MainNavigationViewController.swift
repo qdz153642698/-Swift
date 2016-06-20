@@ -12,8 +12,8 @@ class MainNavigationViewController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
+        self.extendedLayoutIncludesOpaqueBars = true
     }
 
     override func didReceiveMemoryWarning() {

@@ -9,5 +9,5 @@
 #ifndef Bridge_h
 #define Bridge_h
 #import "UIImageView+WebCache.h"
-
+#import "AFNetworking.h"
 #endif /* Bridge_h */

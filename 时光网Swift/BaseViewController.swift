@@ -20,17 +20,22 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if self.respondsToSelector(Selector("setAutomaticallyAdjustsScrollViewInsets:")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
         
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "pic_title_bg9"), forBarMetrics: UIBarMetrics.Default)
+        self.automaticallyAdjustsScrollViewInsets = false
+        self.edgesForExtendedLayout=UIRectEdge.None
+        self.extendedLayoutIncludesOpaqueBars = true
+        self.navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 32.0/255.0, green: 131.0/255.0, blue: 198.0/255.0, alpha: 1)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.hidden = true
+        self.navigationController?.navigationBar.alpha = 0
     }
 
     func choseTitleView(type:ViewControllerType) {
         switch type {
         case .Home:
-            self.navigationController?.navigationBar.hidden = true
             let titleView = UIView(frame: CGRectMake(0,0,100,20))
             let titleImageView = UIImageView(image: UIImage(named: "pic_logo_mtime"))
             titleImageView.frame = CGRectMake(20, 0, 60, 20)
@@ -38,6 +43,12 @@ class BaseViewController: UIViewController {
             self.navigationItem.titleView = titleView
             break
         case .BookTickets:
+            let titleView = UIView(frame: CGRectMake(0,0,100,20))
+            let titleImageView = UIImageView(image: UIImage(named: "pic_logo_mtime"))
+            titleImageView.frame = CGRectMake(20, 0, 60, 20)
+            titleView.addSubview(titleImageView)
+            self.navigationItem.titleView = titleView
+
             break
         case .Shopping:
             break

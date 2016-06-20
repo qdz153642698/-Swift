@@ -47,9 +47,14 @@
 		806E8EC31CC727F6001D791E /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 806E8EC21CC727F6001D791E /* test.json */; };
 		806E8EF81CC75CD4001D791E /* lead_bg_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 806E8EF71CC75CD4001D791E /* lead_bg_logo.png */; };
 		806EE8621CCDC3EB00595FBF /* TimerScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806EE8611CCDC3EB00595FBF /* TimerScrollView.swift */; };
+		806EE8641CCDE9D800595FBF /* ConnectStr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806EE8631CCDE9D800595FBF /* ConnectStr.swift */; };
+		806EE8681CCDEF4200595FBF /* SGNetWorkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806EE8671CCDEF4200595FBF /* SGNetWorkManager.swift */; };
 		8098B8EA1CC76FFA00A6B8B8 /* DemoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8098B8E81CC76FFA00A6B8B8 /* DemoTableViewCell.swift */; };
 		8098B8EB1CC76FFA00A6B8B8 /* DemoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8098B8E91CC76FFA00A6B8B8 /* DemoTableViewCell.xib */; };
 		8098B8F11CC786AD00A6B8B8 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8098B8F01CC786AD00A6B8B8 /* Config.swift */; };
+		80F37CB71CCF0A63000AFB26 /* PosterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F37CB51CCF0A63000AFB26 /* PosterDetailViewController.swift */; };
+		80F37CB81CCF0A63000AFB26 /* PosterDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80F37CB61CCF0A63000AFB26 /* PosterDetailViewController.xib */; };
+		80F37CBA1CCF10C0000AFB26 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F37CB91CCF10C0000AFB26 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,9 +122,14 @@
 		806E8EF61CC75AF6001D791E /* Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bridge.h; path = ../Bridge.h; sourceTree = "<group>"; };
 		806E8EF71CC75CD4001D791E /* lead_bg_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lead_bg_logo.png; sourceTree = "<group>"; };
 		806EE8611CCDC3EB00595FBF /* TimerScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerScrollView.swift; sourceTree = "<group>"; };
+		806EE8631CCDE9D800595FBF /* ConnectStr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectStr.swift; sourceTree = "<group>"; };
+		806EE8671CCDEF4200595FBF /* SGNetWorkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGNetWorkManager.swift; sourceTree = "<group>"; };
 		8098B8E81CC76FFA00A6B8B8 /* DemoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoTableViewCell.swift; sourceTree = "<group>"; };
 		8098B8E91CC76FFA00A6B8B8 /* DemoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoTableViewCell.xib; sourceTree = "<group>"; };
 		8098B8F01CC786AD00A6B8B8 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		80F37CB51CCF0A63000AFB26 /* PosterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PosterDetailViewController.swift; sourceTree = "<group>"; };
+		80F37CB61CCF0A63000AFB26 /* PosterDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PosterDetailViewController.xib; sourceTree = "<group>"; };
+		80F37CB91CCF10C0000AFB26 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8D6194153CC2A4E5A9418B8B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BD1FE3E8AF20C5885C35F688 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -197,6 +207,7 @@
 				805337F01CC60C3A00C251E9 /* MainTabbarButton.swift */,
 				805337F41CC61F1A00C251E9 /* MainNavigationViewController.swift */,
 				805338151CC6384E00C251E9 /* BaseViewController.swift */,
+				80F37CB91CCF10C0000AFB26 /* DetailViewController.swift */,
 				8053380A1CC6284800C251E9 /* Home */,
 				8053380E1CC6285E00C251E9 /* BookTickets */,
 				8053380D1CC6285C00C251E9 /* Shopping */,
@@ -304,6 +315,8 @@
 				806E8EC21CC727F6001D791E /* test.json */,
 				805337F61CC61F4B00C251E9 /* HomeViewController.swift */,
 				805337F71CC61F4B00C251E9 /* HomeViewController.xib */,
+				80F37CB51CCF0A63000AFB26 /* PosterDetailViewController.swift */,
+				80F37CB61CCF0A63000AFB26 /* PosterDetailViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -322,6 +335,7 @@
 			children = (
 				8098B8ED1CC781B700A6B8B8 /* Config */,
 				806EE8611CCDC3EB00595FBF /* TimerScrollView.swift */,
+				806EE8671CCDEF4200595FBF /* SGNetWorkManager.swift */,
 			);
 			name = Unity;
 			sourceTree = "<group>";
@@ -331,6 +345,7 @@
 			children = (
 				806E8EF61CC75AF6001D791E /* Bridge.h */,
 				8098B8F01CC786AD00A6B8B8 /* Config.swift */,
+				806EE8631CCDE9D800595FBF /* ConnectStr.swift */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -466,6 +481,7 @@
 				805337E21CC6022500C251E9 /* tab_discover01.png in Resources */,
 				805337FD1CC61FB000C251E9 /* BookTicketsViewController.xib in Resources */,
 				805337E71CC6022500C251E9 /* tab_payticket02.png in Resources */,
+				80F37CB81CCF0A63000AFB26 /* PosterDetailViewController.xib in Resources */,
 				805337E41CC6022500C251E9 /* tab_home01.png in Resources */,
 				80354F0C1CC6502B000BFC7E /* pic_logo_mtime.png in Resources */,
 				805337EA1CC6022500C251E9 /* user01.png in Resources */,
@@ -551,6 +567,7 @@
 			files = (
 				805338041CC61FD200C251E9 /* DiscoverViewController.swift in Sources */,
 				805337F51CC61F1A00C251E9 /* MainNavigationViewController.swift in Sources */,
+				80F37CB71CCF0A63000AFB26 /* PosterDetailViewController.swift in Sources */,
 				8098B8F11CC786AD00A6B8B8 /* Config.swift in Sources */,
 				805337A61CC5DB7300C251E9 /* AppDelegate.swift in Sources */,
 				80354F0F1CC65A0A000BFC7E /* TopPoster.swift in Sources */,
@@ -558,12 +575,15 @@
 				805337FC1CC61FB000C251E9 /* BookTicketsViewController.swift in Sources */,
 				805338161CC6384E00C251E9 /* BaseViewController.swift in Sources */,
 				80354F111CC65AE1000BFC7E /* GotoPage.swift in Sources */,
+				80F37CBA1CCF10C0000AFB26 /* DetailViewController.swift in Sources */,
 				806EE8621CCDC3EB00595FBF /* TimerScrollView.swift in Sources */,
 				805337F11CC60C3A00C251E9 /* MainTabbarButton.swift in Sources */,
 				805338081CC61FEF00C251E9 /* UsersViewController.swift in Sources */,
 				805338001CC61FC400C251E9 /* ShoppingViewController.swift in Sources */,
 				8098B8EA1CC76FFA00A6B8B8 /* DemoTableViewCell.swift in Sources */,
+				806EE8641CCDE9D800595FBF /* ConnectStr.swift in Sources */,
 				805337F81CC61F4B00C251E9 /* HomeViewController.swift in Sources */,
+				806EE8681CCDEF4200595FBF /* SGNetWorkManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

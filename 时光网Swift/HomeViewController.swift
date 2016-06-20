@@ -17,11 +17,14 @@ class HomeViewController: BaseViewController ,UIScrollViewDelegate,UITableViewDe
     var timerScrollView : TimerScrollView?
     var pageIndex : Int = 0
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad() 
         self.choseTitleView(ViewControllerType.Home)
         let nib : UINib = UINib(nibName: "DemoTableViewCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: cellID)
-        loadData()
+        
+//        loadDataFromLocaJson()    //加载本地json文件
+        
+        loadDataFromNetwork() //网络请求
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -29,7 +32,7 @@ class HomeViewController: BaseViewController ,UIScrollViewDelegate,UITableViewDe
         
     }
     
-    func loadData() {
+    func loadDataFromLocaJson() {
         let path = NSBundle.mainBundle().pathForResource("test", ofType: "json")
         let data = NSData(contentsOfFile: path!)
         if data != nil {
@@ -44,6 +47,25 @@ class HomeViewController: BaseViewController ,UIScrollViewDelegate,UITableViewDe
         
         self.tableView.reloadData()
      
+    }
+    
+    //网络请求
+    func loadDataFromNetwork() {
+        let dic = [String:String]()
+        let manager = SGNetWorkManager.shareInstance
+        manager.getDataTaskWithURL_params_completion("\(SGBaseURL)/PageSubArea/GetFirstPageAdvAndNews.api?subFifthParam=20245004%2315%230&subFistParam=20245001%2315%230&subSecondParam=20245002%2315%230&subSevenParam=20245006%2315%230&subSixParam=20245005%2315%230&subThirdParam=20245003%2315%230", params: dic, successCompletion: { (json) -> Void in
+                print("JSON : \(json)")
+                let array = json["topPosters"] as! NSArray
+                for dic in array{
+                    let topPosterModel = TopPoster.init(dic: (dic as! NSDictionary))
+                    print(topPosterModel.url)
+                    self.topPosterArray.append(topPosterModel)
+                }
+                self.tableView.performSelectorOnMainThread(Selector("reloadData"), withObject: nil, waitUntilDone: false)
+            }) { (error) -> Void in
+                print("居然发生了错误")
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -93,6 +115,7 @@ class HomeViewController: BaseViewController ,UIScrollViewDelegate,UITableViewDe
                 timerScrollView?.removeFromSuperview()
             }
             
+            
             timerScrollView = TimerScrollView()
             timerScrollView!.frame = CGRectMake(0, 0, KScreenWidth, 150.0)
             timerScrollView!.timerDelegate = self
@@ -101,7 +124,9 @@ class HomeViewController: BaseViewController ,UIScrollViewDelegate,UITableViewDe
                 imgUrlArray.append(poster.img!)
             }
             
-            timerScrollView!.configScrollView(imgUrlArray,contentOffsetIndex: pageIndex)
+            if imgUrlArray.count >= 1 {
+                timerScrollView!.configScrollView(imgUrlArray,contentOffsetIndex: pageIndex)
+            }
             
             let searchButton = UIButton(frame: CGRectMake(0,150.0-18.0,KScreenWidth,36))
             searchButton.setBackgroundImage(UIImage(named: "home_search_background"), forState: UIControlState.Normal)
@@ -127,6 +152,15 @@ class HomeViewController: BaseViewController ,UIScrollViewDelegate,UITableViewDe
     
     func scrollToIndexOfPage(index: Int) {
         pageIndex = index
+    }
+    
+    func tapActionIndexOfPage(index: Int) {
+        print("点击区域：\(index)")
+        let topPster = topPosterArray[index]
+        print("\(topPster.gotoPage?.url)")
+        let posterVC = PosterDetailViewController(nibName: "PosterDetailViewController", bundle: nil)
+        posterVC.url = (topPster.gotoPage?.url)!
+        self.navigationController?.pushViewController(posterVC, animated: true)
     }
     
     

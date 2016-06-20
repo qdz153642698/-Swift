@@ -9,6 +9,7 @@
 import UIKit
 protocol TimerScrollViewDelegate {
     func scrollToIndexOfPage(index:Int)
+    func tapActionIndexOfPage(index:Int)
 }
 
 class TimerScrollView: UIView,UIScrollViewDelegate {
@@ -34,6 +35,8 @@ class TimerScrollView: UIView,UIScrollViewDelegate {
         scrollView!.showsHorizontalScrollIndicator = false
         scrollView!.showsVerticalScrollIndicator = false
         self.addSubview(scrollView!)
+        let tap = UITapGestureRecognizer(target: self, action: Selector("tapAction:"))
+        scrollView?.addGestureRecognizer(tap)
         createImageViews(array,contentOffsetIndex:contentOffsetIndex)
         
         configPageControll(contentOffsetIndex)
@@ -79,7 +82,8 @@ class TimerScrollView: UIView,UIScrollViewDelegate {
             timer = nil
         }
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: Selector("timerRun:"), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(4, target: self, selector: Selector("timerRun:"), userInfo: nil, repeats: true)
+        NSRunLoop.mainRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
     }
     
     //暂停
@@ -92,7 +96,7 @@ class TimerScrollView: UIView,UIScrollViewDelegate {
     
     func timerRun(runTimer:NSTimer) {
         let offsetX = scrollView!.contentOffset.x
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
+        UIView.animateWithDuration(0.4, animations: { () -> Void in
                 self.scrollView!.contentOffset = CGPointMake(offsetX+self.frame.size.width, 0)
             }) { (boolValue:Bool) -> Void in
                 self.resetContentOffset()
@@ -121,13 +125,40 @@ class TimerScrollView: UIView,UIScrollViewDelegate {
             scrollView!.contentOffset = CGPointMake(self.frame.size.width, 0)
         }
         
-//        if timerDelegate?(respondsToSelector(Selector("scrollToIndexOfPage:"))) {
-        let index = Int((scrollView!.contentOffset.x - self.frame.size.width) / self.frame.size.width)
-        pageCT?.currentPage = index
-        timerDelegate?.scrollToIndexOfPage(index)
-//        }
+        
+        let vc = self.timerDelegate as! UIViewController
+        if vc.respondsToSelector(Selector("scrollToIndexOfPage:")) {
+            let index = Int((scrollView!.contentOffset.x - self.frame.size.width) / self.frame.size.width)
+            pageCT?.currentPage = index
+            timerDelegate?.scrollToIndexOfPage(index)
+        }
         
         
+    }
+    
+    
+    func tapAction(tap:UITapGestureRecognizer){
+        let vc = self.timerDelegate as! UIViewController
+        if vc.respondsToSelector(Selector("scrollToIndexOfPage:")) {
+            let index = Int((scrollView!.contentOffset.x - self.frame.size.width) / self.frame.size.width)
+            timerDelegate?.tapActionIndexOfPage(index)
+        }
+        
+    }
+    
+    //解决 当UIView上面的UIButton超出UIView的范围时，UIButton点击范围问题
+    override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
+        let result = super.hitTest(point, withEvent: event)
+        for sub in self.subviews {
+            if sub is UIButton {
+                let button = sub as! UIButton
+                let buttonPoint = button.convertPoint(point, fromView: self)
+                if button.pointInside(buttonPoint, withEvent: event) {
+                    return button
+                }
+            }
+        }
+        return result
     }
     
     

@@ -26,8 +26,10 @@ class TimerScrollView: UIView,UIScrollViewDelegate {
     */
     func configScrollView(array:NSArray,contentOffsetIndex:Int){
         count = array.count
+        
         self.clipsToBounds = false
         self.backgroundColor = UIColor.whiteColor()
+        
         scrollView = UIScrollView(frame: self.bounds)
         scrollView!.delegate = self
         scrollView!.contentSize = CGSizeMake(CGFloat(array.count+2) * self.frame.size.width, self.frame.size.height)
@@ -35,12 +37,13 @@ class TimerScrollView: UIView,UIScrollViewDelegate {
         scrollView!.showsHorizontalScrollIndicator = false
         scrollView!.showsVerticalScrollIndicator = false
         self.addSubview(scrollView!)
-        let tap = UITapGestureRecognizer(target: self, action: Selector("tapAction:"))
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction(_:)))
         scrollView?.addGestureRecognizer(tap)
+        
         createImageViews(array,contentOffsetIndex:contentOffsetIndex)
-        
         configPageControll(contentOffsetIndex)
-        
+
         timerBegin()
     }
     
@@ -67,7 +70,7 @@ class TimerScrollView: UIView,UIScrollViewDelegate {
     }
     
     func configPageControll(currentPage:Int) {
-        pageCT = UIPageControl(frame: CGRectMake(0,self.frame.size.height-30.0,self.frame.size.width,15))
+        pageCT = UIPageControl(frame: CGRectMake(0,self.frame.size.height-36-15,self.frame.size.width,15))
         pageCT!.pageIndicatorTintColor = UIColor.grayColor()
         pageCT!.currentPageIndicatorTintColor = UIColor.whiteColor()
         pageCT!.numberOfPages = count
@@ -82,7 +85,7 @@ class TimerScrollView: UIView,UIScrollViewDelegate {
             timer = nil
         }
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(4, target: self, selector: Selector("timerRun:"), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(4, target: self, selector: #selector(timerRun(_:)), userInfo: nil, repeats: true)
         NSRunLoop.mainRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
     }
     
@@ -102,6 +105,13 @@ class TimerScrollView: UIView,UIScrollViewDelegate {
                 self.resetContentOffset()
         }
         
+    }
+    
+    func resetTimerScrollView(){
+        for obj in self.subviews{
+            obj.removeFromSuperview()
+        }
+        timerSuspend()
     }
     
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
@@ -146,22 +156,4 @@ class TimerScrollView: UIView,UIScrollViewDelegate {
         
     }
     
-    //解决 当UIView上面的UIButton超出UIView的范围时，UIButton点击范围问题
-    override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
-        let result = super.hitTest(point, withEvent: event)
-        for sub in self.subviews {
-            if sub is UIButton {
-                let button = sub as! UIButton
-                let buttonPoint = button.convertPoint(point, fromView: self)
-                if button.pointInside(buttonPoint, withEvent: event) {
-                    return button
-                }
-            }
-        }
-        return result
-    }
-    
-    
-    
-
 }

@@ -10,4 +10,5 @@
 #define Bridge_h
 #import "UIImageView+WebCache.h"
 #import "AFNetworking.h"
+#import "UIButton+Blocks.h"
 #endif /* Bridge_h */

@@ -39,7 +39,6 @@ class MainTabBarViewController: UITabBarController {
         let tabbarView = UIView(frame: CGRectMake(0,0,KScreenWidth,49))
         tabbarView.backgroundColor = UIColor.whiteColor()
         self.tabBar.addSubview(tabbarView)
-        
         for i in 0...4 {
             let itemName = itemNames[i]
             let itemImageNor = itemImagesNor[i]
@@ -51,7 +50,7 @@ class MainTabBarViewController: UITabBarController {
                 button.selected = true
                 selectedButton = button
             }
-            button.addTarget(self, action: Selector("itemClickAction:"), forControlEvents: UIControlEvents.TouchUpInside)
+            button.addTarget(self, action: #selector(MainTabBarViewController.itemClickAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         }
         
     }

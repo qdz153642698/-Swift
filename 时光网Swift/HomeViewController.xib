@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="时光网Swift" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="UYa-y4-9uj" id="52W-FI-oU9"/>
+                <outlet property="collectionView" destination="8vY-ZP-5kg" id="UzS-ow-zNO"/>
+                <outlet property="topLayout" destination="eBc-Gp-YKB" id="8SA-9h-4zN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,21 +17,27 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="UYa-y4-9uj">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="8vY-ZP-5kg">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PRg-yg-zvn">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="e1x-kb-JkX"/>
-                        <outlet property="delegate" destination="-1" id="4og-pZ-D0L"/>
+                        <outlet property="dataSource" destination="-1" id="RzK-0z-amW"/>
+                        <outlet property="delegate" destination="-1" id="bVY-QX-WwI"/>
                     </connections>
-                </tableView>
+                </collectionView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="UYa-y4-9uj" secondAttribute="bottom" id="7Kn-04-qmZ"/>
-                <constraint firstItem="UYa-y4-9uj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="DpD-zv-bcq"/>
-                <constraint firstAttribute="trailing" secondItem="UYa-y4-9uj" secondAttribute="trailing" id="KFU-7z-gpP"/>
-                <constraint firstItem="UYa-y4-9uj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Zo2-wn-y5K"/>
+                <constraint firstItem="8vY-ZP-5kg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Jhe-Ut-All"/>
+                <constraint firstItem="8vY-ZP-5kg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="eBc-Gp-YKB"/>
+                <constraint firstAttribute="bottom" secondItem="8vY-ZP-5kg" secondAttribute="bottom" id="hac-VL-QqK"/>
+                <constraint firstAttribute="trailing" secondItem="8vY-ZP-5kg" secondAttribute="trailing" id="lmK-F6-Ve8"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

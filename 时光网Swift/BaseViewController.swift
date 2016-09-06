@@ -20,17 +20,13 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.automaticallyAdjustsScrollViewInsets = false
-        self.edgesForExtendedLayout=UIRectEdge.None
-        self.extendedLayoutIncludesOpaqueBars = true
-        self.navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 32.0/255.0, green: 131.0/255.0, blue: 198.0/255.0, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 32.0/255.0, green: 131.0/255.0, blue: 198.0/255.0, alpha: 0.3)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.hidden = true
-        self.navigationController?.navigationBar.alpha = 0
+        
     }
 
     func choseTitleView(type:ViewControllerType) {

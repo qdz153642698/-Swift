@@ -32,8 +32,6 @@ class TopPoster: NSObject {
         img = dic["img"] as? String
         let gotoPageDic = dic["gotoPage"] as? NSDictionary
         gotoPage = GotoPage.init(dic: gotoPageDic!)
-        
-        
     }
 
     

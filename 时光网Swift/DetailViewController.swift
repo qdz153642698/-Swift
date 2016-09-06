@@ -32,8 +32,7 @@ class DetailViewController: BaseViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.hidden = false
-        self.navigationController?.navigationBar.alpha = 1
+
     }
     
 

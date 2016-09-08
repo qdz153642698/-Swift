@@ -27,13 +27,14 @@ class HotPlayersItemCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        buyTicketButton.setBackgroundImage(UIImage(named: "pic_btn_orange_on"), forState: UIControlState.Normal)
+        buyTicketButton.setBackgroundImage(UIImage(named: "bt_solid_orange_66"), forState: UIControlState.Normal)
         buyTicketButton.layer.cornerRadius = CGRectGetHeight(buyTicketButton.bounds) / 2.0
         buyTicketButton.layer.masksToBounds = true
         
         movie3DType.backgroundColor = ColorWithRGB(r: 8, g: 195, b: 240, alpha: 1)
         ratingLabel.backgroundColor = ColorWithRGB(r: 105, g: 174, b: 0, alpha: 1)
     }
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -44,7 +45,10 @@ class HotPlayersItemCollectionViewCell: UICollectionViewCell {
         movieNameLabel.text = "\(movie!.titleCn!)"
         
         //new 标志
-        if movie!.isNew == true{
+        if movie!.isTodayMovie == true {
+            sysbolImageView.image = UIImage(named: "low_new_tag")
+            sysbolImageView.hidden = false
+        }else if movie!.isNew == true{
             sysbolImageView.image = UIImage(named: "img_home_new")
             sysbolImageView.hidden = false
         }else{
@@ -71,9 +75,19 @@ class HotPlayersItemCollectionViewCell: UICollectionViewCell {
          7.6   6.7   6.4   7.9   6.4    7    5.7   6.3   6.1    -1    7. 2    7.7    5   5.7   7.1
          */
         if movie!.ratingFinal! >= 0 {
+            ratingLabel.hidden = false
             ratingLabel.text = "\(movie!.ratingFinal!)"
         }else{
-            ratingLabel.text = "\(0)"
+            ratingLabel.hidden = true
+        }
+        
+        //购票按钮
+        if movie!.isAdvanceBooking == true {
+            buyTicketButton.setBackgroundImage(UIImage(named:"bt_solid_green_66"), forState: UIControlState.Normal)
+            buyTicketButton.setTitle("预售", forState: UIControlState.Normal)
+        }else{
+            buyTicketButton.setBackgroundImage(UIImage(named:"bt_solid_orange_66"), forState: UIControlState.Normal)
+            buyTicketButton.setTitle("购票", forState: UIControlState.Normal)
         }
         
     }

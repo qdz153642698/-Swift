@@ -19,7 +19,9 @@ class QDZHorizontalScrollView: UIView,UICollectionViewDataSource,UICollectionVie
     }
     var hotMovies : [HotMovieModel]?{
         didSet{
-            configCollectionView()
+            if hotMovies != nil {
+                configCollectionView()
+            }
         }
     }
     
@@ -67,7 +69,6 @@ class QDZHorizontalScrollView: UIView,UICollectionViewDataSource,UICollectionVie
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return (hotMovies?.count)!
     }
-    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell : HotPlayersItemCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(HotPlayersItemCollectionCell, forIndexPath: indexPath) as! HotPlayersItemCollectionViewCell
         cell.movie = self.hotMovies?[indexPath.item]

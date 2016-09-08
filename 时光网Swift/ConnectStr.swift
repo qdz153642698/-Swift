@@ -9,3 +9,5 @@
 import Foundation
 
 let SGBaseURL = "http://api.m.mtime.cn"
+let SGCommURL = "http://comm-api.m.mtime.cn"
+

@@ -20,16 +20,17 @@ class SalingTicketsCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    var movies : Int?{
+    var movies : Int? = 0{
         didSet{
-            movieButtonTitle = "共\(movies!)部"
-            self.setNeedsLayout()
+            if movies != nil {
+                movieButtonTitle = "共\(movies!)部"
+                self.setNeedsLayout()
+            }
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
     
     override func layoutSubviews() {
@@ -38,7 +39,9 @@ class SalingTicketsCollectionViewCell: UICollectionViewCell {
         salingCityButton.setTitle(baseSalingCityButton! as String, forState: UIControlState.Normal)
         
         //共50部门
-        moviesButton.setTitle(String(movieButtonTitle!), forState: UIControlState.Normal)
+        if movieButtonTitle != nil {
+            moviesButton.setTitle(String(movieButtonTitle!), forState: UIControlState.Normal)
+        }
         
     }
 

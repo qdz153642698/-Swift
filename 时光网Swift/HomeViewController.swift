@@ -56,10 +56,10 @@ class HomeViewController: BaseViewController ,UIScrollViewDelegate,UICollectionV
         self.collectionView.registerNib(timeFeaturedNib, forCellWithReuseIdentifier: TimeFeaturedCollectionCell)
         
         //从本地加载数据（有空再换成网络请求）
-        loadDataHotPlayersFromLocaJson()
+//        loadDataHotPlayersFromLocaJson()   
         
-        
-        loadDataFromNetwork() //网络请求
+        //(topPoster)
+        loadDataFromNetwork()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -96,19 +96,37 @@ class HomeViewController: BaseViewController ,UIScrollViewDelegate,UICollectionV
         self.collectionView.reloadData()
     }
     
+    func loadDataHotPlayersFromNetwork(){
+        let dic = [String:String]()
+        let manager = SGNetWorkManager.shareInstance
+        manager.getDataTaskWithURL_params_completion("\(SGBaseURL)//PageSubArea/HotPlayMovies.api?locationId=290", params: dic, successCompletion: { (json) -> Void in
+            print("JSON : \(json)")
+            self.hotMovies = HotMovies.init(dic: json)
+            self.collectionView.reloadData()
+        }) { (error) -> Void in
+            print("居然发生了错误")
+        }
+        
+    }
+    
     //网络请求
     func loadDataFromNetwork() {
         let dic = [String:String]()
         let manager = SGNetWorkManager.shareInstance
-        manager.getDataTaskWithURL_params_completion("\(SGBaseURL)/PageSubArea/GetFirstPageAdvAndNews.api?subFifthParam=20245004%2315%230&subFistParam=20245001%2315%230&subSecondParam=20245002%2315%230&subSevenParam=20245006%2315%230&subSixParam=20245005%2315%230&subThirdParam=20245003%2315%230", params: dic, successCompletion: { (json) -> Void in
+        manager.getDataTaskWithURL_params_completion("\(SGCommURL)/home/index.api?subSecondParam=3%7C20245003%2324%230,1%7C21900667%2324%231,6%7C20245005%2324%230,2%7C20245002%2324%230,7%7C20245006%2324%230,5%7C20245004%2324%230", params: dic, successCompletion: { (json) -> Void in
                 print("JSON : \(json)")
-                let array = json["topPosters"] as! NSArray
+            let code : Int = Int(json["code"] as! String)!
+            if Code(code) == true{
+                let data = json["data"] as! NSDictionary
+                let array = data["topPosters"] as! NSArray
                 for dic in array{
                     let topPosterModel = TopPoster.init(dic: (dic as! NSDictionary))
                     print(topPosterModel.url)
                     self.topPosterArray.append(topPosterModel)
+                }
+                //HotPlayers
+                self.loadDataHotPlayersFromNetwork()
             }
-            self.collectionView.reloadData()
             }) { (error) -> Void in
                 print("居然发生了错误")
         }
@@ -136,7 +154,7 @@ class HomeViewController: BaseViewController ,UIScrollViewDelegate,UICollectionV
             if indexPath.item == 0 {
                 let cell : SalingTicketsCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(SalingTicketsCollectionCell, forIndexPath: indexPath) as! SalingTicketsCollectionViewCell
                 cell.cityName = "北京"
-                cell.movies = (self.hotMovies?.totalHotMovie)
+                cell.movies = self.hotMovies?.totalHotMovie
                 return cell
             }else if indexPath.item == 1{
                 let cell : HotPlayersCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(HotPlayersCollectionCell, forIndexPath: indexPath) as! HotPlayersCollectionViewCell
@@ -144,8 +162,10 @@ class HomeViewController: BaseViewController ,UIScrollViewDelegate,UICollectionV
                 return cell
             }else{
                 let cell : HotPlayersSecondCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(HotPlayersSecondCollectionCell, forIndexPath: indexPath) as! HotPlayersSecondCollectionViewCell
-                cell.comingMovieValue = self.hotMovies?.totalComingMovie
-                cell.cinemas = self.hotMovies?.totalCinemaCount
+                if self.hotMovies != nil{
+                    cell.comingMovieValue = self.hotMovies?.totalComingMovie
+                    cell.cinemas = self.hotMovies?.totalCinemaCount
+                }
                 return cell;
             }
         }

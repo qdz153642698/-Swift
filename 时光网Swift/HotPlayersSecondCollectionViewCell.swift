@@ -16,16 +16,20 @@ class HotPlayersSecondCollectionViewCell: UICollectionViewCell {
     
     var comingMoviewText : String?
     var cinemasText : String?
-    var comingMovieValue : Int?{
+    var comingMovieValue : Int? = 0{
         didSet{
-            comingMoviewText = "即将上映·\(comingMovieValue!)部"
+            if comingMovieValue != nil {
+                comingMoviewText = "即将上映·\(comingMovieValue!)部"
+            }
         }
     }
     
-    var cinemas : Int?{
+    var cinemas : Int? = 0{
         didSet{
-            cinemasText = "同城影院·\(cinemas!)家"
-            self.setNeedsLayout()
+            if cinemas != nil {
+                cinemasText = "同城影院·\(cinemas!)家"
+                self.setNeedsLayout()
+            }
         }
     }
     override func awakeFromNib() {
@@ -38,8 +42,13 @@ class HotPlayersSecondCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        comingMovieButton.setTitle(comingMoviewText!, forState: UIControlState.Normal)
-        cinemasButton.setTitle(cinemasText!, forState: UIControlState.Normal)
+        if comingMoviewText != nil {
+            comingMovieButton.setTitle(comingMoviewText!, forState: UIControlState.Normal)
+        }
+        
+        if cinemasText != nil {
+            cinemasButton.setTitle(cinemasText!, forState: UIControlState.Normal)
+        }
     }
     
     

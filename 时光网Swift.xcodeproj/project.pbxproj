@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F524D9E648A64643E8F89F5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD1FE3E8AF20C5885C35F688 /* libPods.a */; };
 		800EBCF41CC8DCB700962D75 /* home_scan.png in Resources */ = {isa = PBXBuildFile; fileRef = 800EBCF21CC8DCB700962D75 /* home_scan.png */; };
 		800EBCF51CC8DCB700962D75 /* home_search_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 800EBCF31CC8DCB700962D75 /* home_search_background.png */; };
 		80354F0C1CC6502B000BFC7E /* pic_logo_mtime.png in Resources */ = {isa = PBXBuildFile; fileRef = 80354F0B1CC6502B000BFC7E /* pic_logo_mtime.png */; };
@@ -49,6 +48,12 @@
 		80559EAE1D77DC3500823727 /* TopPostersCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80559EAC1D77DC3500823727 /* TopPostersCollectionReusableView.swift */; };
 		80559EAF1D77DC3500823727 /* TopPostersCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80559EAD1D77DC3500823727 /* TopPostersCollectionReusableView.xib */; };
 		80559EB41D78130C00823727 /* UIButton+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 80559EB31D78130C00823727 /* UIButton+Blocks.m */; };
+		805AB3941D7EA59B00E24FF9 /* QDZDateFormatterString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805AB3931D7EA59B00E24FF9 /* QDZDateFormatterString.swift */; };
+		805AB3961D7EA92A00E24FF9 /* icon_new_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 805AB3951D7EA92A00E24FF9 /* icon_new_home.png */; };
+		805AB3981D7EA9C000E24FF9 /* low_new_tag.png in Resources */ = {isa = PBXBuildFile; fileRef = 805AB3971D7EA9C000E24FF9 /* low_new_tag.png */; };
+		805AB39A1D7EAA6900E24FF9 /* button_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 805AB3991D7EAA6900E24FF9 /* button_green.png */; };
+		805AB39C1D7EADD700E24FF9 /* bt_solid_orange_66.png in Resources */ = {isa = PBXBuildFile; fileRef = 805AB39B1D7EADD700E24FF9 /* bt_solid_orange_66.png */; };
+		805AB39E1D7EADE500E24FF9 /* bt_solid_green_66.png in Resources */ = {isa = PBXBuildFile; fileRef = 805AB39D1D7EADE500E24FF9 /* bt_solid_green_66.png */; };
 		805D88B61D79890A00257CFD /* SalingTicketsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805D88B41D79890A00257CFD /* SalingTicketsCollectionViewCell.swift */; };
 		805D88B71D79890A00257CFD /* SalingTicketsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 805D88B51D79890A00257CFD /* SalingTicketsCollectionViewCell.xib */; };
 		805D88B91D798A2900257CFD /* icon_down_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 805D88B81D798A2900257CFD /* icon_down_arrow@2x.png */; };
@@ -66,6 +71,8 @@
 		806174B71D7D5B480051D11B /* HotPlayersItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806174B51D7D5B480051D11B /* HotPlayersItemCollectionViewCell.xib */; };
 		806174B91D7D74F30051D11B /* pic_btn_orange_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 806174B81D7D74F30051D11B /* pic_btn_orange_on.png */; };
 		806174BB1D7D7E130051D11B /* img_home_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 806174BA1D7D7E130051D11B /* img_home_new.png */; };
+		8066AB791D81444C00D7D77A /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066AB781D81444C00D7D77A /* HomeModel.swift */; };
+		8066AB7B1D81478A00D7D77A /* RecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066AB7A1D81478A00D7D77A /* RecommendModel.swift */; };
 		806E8EC31CC727F6001D791E /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 806E8EC21CC727F6001D791E /* test.json */; };
 		806E8EF81CC75CD4001D791E /* lead_bg_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 806E8EF71CC75CD4001D791E /* lead_bg_logo.png */; };
 		806EE8621CCDC3EB00595FBF /* TimerScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806EE8611CCDC3EB00595FBF /* TimerScrollView.swift */; };
@@ -76,6 +83,7 @@
 		80F37CB71CCF0A63000AFB26 /* PosterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F37CB51CCF0A63000AFB26 /* PosterDetailViewController.swift */; };
 		80F37CB81CCF0A63000AFB26 /* PosterDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80F37CB61CCF0A63000AFB26 /* PosterDetailViewController.xib */; };
 		80F37CBA1CCF10C0000AFB26 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F37CB91CCF10C0000AFB26 /* DetailViewController.swift */; };
+		E828EE7B3C48563C5C17D0A6 /* libPods-时光网Swift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B2FFD9D49848FEFB4E62920 /* libPods-时光网Swift.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,7 +104,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6D389F3594EB3B95E8C9A5E4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		800EBCF21CC8DCB700962D75 /* home_scan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_scan.png; sourceTree = "<group>"; };
 		800EBCF31CC8DCB700962D75 /* home_search_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_search_background.png; sourceTree = "<group>"; };
 		80354F0B1CC6502B000BFC7E /* pic_logo_mtime.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pic_logo_mtime.png; sourceTree = "<group>"; };
@@ -145,6 +152,12 @@
 		80559EAD1D77DC3500823727 /* TopPostersCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopPostersCollectionReusableView.xib; sourceTree = "<group>"; };
 		80559EB21D78130C00823727 /* UIButton+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Blocks.h"; sourceTree = "<group>"; };
 		80559EB31D78130C00823727 /* UIButton+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Blocks.m"; sourceTree = "<group>"; };
+		805AB3931D7EA59B00E24FF9 /* QDZDateFormatterString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QDZDateFormatterString.swift; sourceTree = "<group>"; };
+		805AB3951D7EA92A00E24FF9 /* icon_new_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_new_home.png; sourceTree = "<group>"; };
+		805AB3971D7EA9C000E24FF9 /* low_new_tag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = low_new_tag.png; sourceTree = "<group>"; };
+		805AB3991D7EAA6900E24FF9 /* button_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_green.png; sourceTree = "<group>"; };
+		805AB39B1D7EADD700E24FF9 /* bt_solid_orange_66.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_solid_orange_66.png; sourceTree = "<group>"; };
+		805AB39D1D7EADE500E24FF9 /* bt_solid_green_66.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_solid_green_66.png; sourceTree = "<group>"; };
 		805D88B41D79890A00257CFD /* SalingTicketsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalingTicketsCollectionViewCell.swift; sourceTree = "<group>"; };
 		805D88B51D79890A00257CFD /* SalingTicketsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SalingTicketsCollectionViewCell.xib; sourceTree = "<group>"; };
 		805D88B81D798A2900257CFD /* icon_down_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_down_arrow@2x.png"; sourceTree = "<group>"; };
@@ -162,6 +175,8 @@
 		806174B51D7D5B480051D11B /* HotPlayersItemCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotPlayersItemCollectionViewCell.xib; sourceTree = "<group>"; };
 		806174B81D7D74F30051D11B /* pic_btn_orange_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pic_btn_orange_on.png; sourceTree = "<group>"; };
 		806174BA1D7D7E130051D11B /* img_home_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_home_new.png; sourceTree = "<group>"; };
+		8066AB781D81444C00D7D77A /* HomeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		8066AB7A1D81478A00D7D77A /* RecommendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendModel.swift; sourceTree = "<group>"; };
 		806E8EC21CC727F6001D791E /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = test.json; path = "时光网Swift/test.json"; sourceTree = "<group>"; };
 		806E8EF61CC75AF6001D791E /* Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bridge.h; path = ../Bridge.h; sourceTree = "<group>"; };
 		806E8EF71CC75CD4001D791E /* lead_bg_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lead_bg_logo.png; sourceTree = "<group>"; };
@@ -173,8 +188,9 @@
 		80F37CB51CCF0A63000AFB26 /* PosterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PosterDetailViewController.swift; sourceTree = "<group>"; };
 		80F37CB61CCF0A63000AFB26 /* PosterDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PosterDetailViewController.xib; sourceTree = "<group>"; };
 		80F37CB91CCF10C0000AFB26 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		8D6194153CC2A4E5A9418B8B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		BD1FE3E8AF20C5885C35F688 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B2FFD9D49848FEFB4E62920 /* libPods-时光网Swift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-时光网Swift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93ADFE48E203D955A2A61C17 /* Pods-时光网Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-时光网Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-时光网Swift/Pods-时光网Swift.release.xcconfig"; sourceTree = "<group>"; };
+		F92BB41BD79507EA8F96FD25 /* Pods-时光网Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-时光网Swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-时光网Swift/Pods-时光网Swift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,7 +198,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F524D9E648A64643E8F89F5 /* libPods.a in Frameworks */,
+				E828EE7B3C48563C5C17D0A6 /* libPods-时光网Swift.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,21 +219,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		206D415377747D54B7BC9D8D /* Frameworks */ = {
+		226E1AA18B6304F9023A0DE8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BD1FE3E8AF20C5885C35F688 /* libPods.a */,
+				8B2FFD9D49848FEFB4E62920 /* libPods-时光网Swift.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		34305222870AFFAEB0D8C44B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F92BB41BD79507EA8F96FD25 /* Pods-时光网Swift.debug.xcconfig */,
+				93ADFE48E203D955A2A61C17 /* Pods-时光网Swift.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		80354F0D1CC659E0000BFC7E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8066AB781D81444C00D7D77A /* HomeModel.swift */,
 				80354F0E1CC65A0A000BFC7E /* TopPoster.swift */,
+				8066AB7A1D81478A00D7D77A /* RecommendModel.swift */,
 				80354F101CC65AE1000BFC7E /* GotoPage.swift */,
-				806174A41D7D17BD0051D11B /* HotMovieModel.swift */,
 				806174A61D7D17E20051D11B /* HotMovies.swift */,
+				806174A41D7D17BD0051D11B /* HotMovieModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -229,8 +256,8 @@
 				805337B91CC5DB7300C251E9 /* 时光网SwiftTests */,
 				805337C41CC5DB7300C251E9 /* 时光网SwiftUITests */,
 				805337A31CC5DB7300C251E9 /* Products */,
-				BF715A0E3EF0D4EEEF17C78F /* Pods */,
-				206D415377747D54B7BC9D8D /* Frameworks */,
+				34305222870AFFAEB0D8C44B /* Pods */,
+				226E1AA18B6304F9023A0DE8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -289,7 +316,12 @@
 		805337D71CC5E8C600C251E9 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				805AB39D1D7EADE500E24FF9 /* bt_solid_green_66.png */,
+				805AB39B1D7EADD700E24FF9 /* bt_solid_orange_66.png */,
+				805AB3971D7EA9C000E24FF9 /* low_new_tag.png */,
+				805AB3951D7EA92A00E24FF9 /* icon_new_home.png */,
 				806174BA1D7D7E130051D11B /* img_home_new.png */,
+				805AB3991D7EAA6900E24FF9 /* button_green.png */,
 				806174B81D7D74F30051D11B /* pic_btn_orange_on.png */,
 				805D88BA1D798C7D00257CFD /* icon_go@2x.png */,
 				805D88B81D798A2900257CFD /* icon_down_arrow@2x.png */,
@@ -409,6 +441,7 @@
 				80559EB21D78130C00823727 /* UIButton+Blocks.h */,
 				80559EB31D78130C00823727 /* UIButton+Blocks.m */,
 				806174B01D7D58360051D11B /* QDZHorizontalScrollView.swift */,
+				805AB3931D7EA59B00E24FF9 /* QDZDateFormatterString.swift */,
 				8098B8ED1CC781B700A6B8B8 /* Config */,
 			);
 			name = Unity;
@@ -424,15 +457,6 @@
 			name = Config;
 			sourceTree = "<group>";
 		};
-		BF715A0E3EF0D4EEEF17C78F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				8D6194153CC2A4E5A9418B8B /* Pods.debug.xcconfig */,
-				6D389F3594EB3B95E8C9A5E4 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -440,12 +464,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 805337CA1CC5DB7300C251E9 /* Build configuration list for PBXNativeTarget "时光网Swift" */;
 			buildPhases = (
-				60D63DC2ACD8A17CBBBD59AA /* Check Pods Manifest.lock */,
+				AAF18B9B4BA16701E8EFD117 /* 📦 Check Pods Manifest.lock */,
 				8053379E1CC5DB7300C251E9 /* Sources */,
 				8053379F1CC5DB7300C251E9 /* Frameworks */,
 				805337A01CC5DB7300C251E9 /* Resources */,
-				4DA53FA2E3D972DE93E5757A /* Copy Pods Resources */,
-				803FD22A56A3A3491E5FFC0A /* Embed Pods Frameworks */,
+				6E882B4E5ECCDB0044897EE8 /* 📦 Embed Pods Frameworks */,
+				7E8306DC6CC6D7CF3359FC40 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -548,18 +572,22 @@
 				805338091CC61FEF00C251E9 /* UsersViewController.xib in Resources */,
 				800EBCF51CC8DCB700962D75 /* home_search_background.png in Resources */,
 				805D88B91D798A2900257CFD /* icon_down_arrow@2x.png in Resources */,
+				805AB39A1D7EAA6900E24FF9 /* button_green.png in Resources */,
 				806E8EF81CC75CD4001D791E /* lead_bg_logo.png in Resources */,
 				805337E31CC6022500C251E9 /* tab_discover02.png in Resources */,
 				805337B01CC5DB7300C251E9 /* LaunchScreen.storyboard in Resources */,
 				806174BB1D7D7E130051D11B /* img_home_new.png in Resources */,
+				805AB39E1D7EADE500E24FF9 /* bt_solid_green_66.png in Resources */,
 				806E8EC31CC727F6001D791E /* test.json in Resources */,
 				805D88BB1D798C7D00257CFD /* icon_go@2x.png in Resources */,
 				805337F91CC61F4B00C251E9 /* HomeViewController.xib in Resources */,
 				805337E61CC6022500C251E9 /* tab_payticket01.png in Resources */,
+				805AB3981D7EA9C000E24FF9 /* low_new_tag.png in Resources */,
 				805337E21CC6022500C251E9 /* tab_discover01.png in Resources */,
 				805337FD1CC61FB000C251E9 /* BookTicketsViewController.xib in Resources */,
 				805337E71CC6022500C251E9 /* tab_payticket02.png in Resources */,
 				80F37CB81CCF0A63000AFB26 /* PosterDetailViewController.xib in Resources */,
+				805AB3961D7EA92A00E24FF9 /* icon_new_home.png in Resources */,
 				805337E41CC6022500C251E9 /* tab_home01.png in Resources */,
 				80354F0C1CC6502B000BFC7E /* pic_logo_mtime.png in Resources */,
 				805337EA1CC6022500C251E9 /* user01.png in Resources */,
@@ -573,6 +601,7 @@
 				80559EAF1D77DC3500823727 /* TopPostersCollectionReusableView.xib in Resources */,
 				800EBCF41CC8DCB700962D75 /* home_scan.png in Resources */,
 				8061749C1D7D0E3B0051D11B /* TimeFeatured.json in Resources */,
+				805AB39C1D7EADD700E24FF9 /* bt_solid_orange_66.png in Resources */,
 				805337AD1CC5DB7300C251E9 /* Assets.xcassets in Resources */,
 				806174AB1D7D45330051D11B /* HotPlayersSecondCollectionViewCell.xib in Resources */,
 				805338011CC61FC400C251E9 /* ShoppingViewController.xib in Resources */,
@@ -597,49 +626,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4DA53FA2E3D972DE93E5757A /* Copy Pods Resources */ = {
+		6E882B4E5ECCDB0044897EE8 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-时光网Swift/Pods-时光网Swift-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		60D63DC2ACD8A17CBBBD59AA /* Check Pods Manifest.lock */ = {
+		7E8306DC6CC6D7CF3359FC40 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-时光网Swift/Pods-时光网Swift-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAF18B9B4BA16701E8EFD117 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		803FD22A56A3A3491E5FFC0A /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -672,10 +701,13 @@
 				80559EB41D78130C00823727 /* UIButton+Blocks.m in Sources */,
 				806174A71D7D17E20051D11B /* HotMovies.swift in Sources */,
 				806174AE1D7D55030051D11B /* HotPlayersCollectionViewCell.swift in Sources */,
+				8066AB791D81444C00D7D77A /* HomeModel.swift in Sources */,
 				806EE8641CCDE9D800595FBF /* ConnectStr.swift in Sources */,
 				80559EAA1D77D98500823727 /* TimeFeaturedCollectionViewCell.swift in Sources */,
+				8066AB7B1D81478A00D7D77A /* RecommendModel.swift in Sources */,
 				805337F81CC61F4B00C251E9 /* HomeViewController.swift in Sources */,
 				806174AA1D7D45330051D11B /* HotPlayersSecondCollectionViewCell.swift in Sources */,
+				805AB3941D7EA59B00E24FF9 /* QDZDateFormatterString.swift in Sources */,
 				806EE8681CCDEF4200595FBF /* SGNetWorkManager.swift in Sources */,
 				805D88B61D79890A00257CFD /* SalingTicketsCollectionViewCell.swift in Sources */,
 			);
@@ -807,7 +839,7 @@
 		};
 		805337CB1CC5DB7300C251E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8D6194153CC2A4E5A9418B8B /* Pods.debug.xcconfig */;
+			baseConfigurationReference = F92BB41BD79507EA8F96FD25 /* Pods-时光网Swift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -822,7 +854,7 @@
 		};
 		805337CC1CC5DB7300C251E9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6D389F3594EB3B95E8C9A5E4 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 93ADFE48E203D955A2A61C17 /* Pods-时光网Swift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

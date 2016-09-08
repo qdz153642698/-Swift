@@ -21,3 +21,11 @@ var iOS9_Later = systemVersion >= 9.0 ? true : false
 func ColorWithRGB(r r:CGFloat,g:CGFloat,b:CGFloat,alpha:CGFloat) -> UIColor{
     return UIColor.init(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: alpha)
 }
+
+func Code(code:Int) -> Bool{
+    if code == 0 || code == 1 {
+        return true
+    }else{
+        return false
+    }
+}

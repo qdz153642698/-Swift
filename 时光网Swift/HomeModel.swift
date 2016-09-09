@@ -34,16 +34,39 @@ import UIKit
 class HomeModel: NSObject {
     var advLists = [TopPoster]()
 //    var mallEntrys = [NSDictionary]()
+    var mallRecommends = [RecommendModel]()
+    var searchBarDescribe : String = ""
+//    var specialTopicList = [NSDictionary]()
+    var topPosters = [TopPoster]()
+    var msg : String = ""
+    var showMsg : String = ""
     init(dic : NSDictionary) {
         super.init()
         let advListArray = dic["advList"] as? [NSDictionary]
-        for adv in advListArray! {
-            let advElement = TopPoster.init(dic: adv)
-            advLists.append(advElement)
+        if advListArray != nil {
+            for adv in advListArray! {
+                let advElement = TopPoster.init(dic: adv)
+                advLists.append(advElement)
+            }
         }
         
+        let recommendArray = dic["mallRecommends"] as? [NSDictionary]
+        if recommendArray != nil {
+            for recommend in recommendArray! {
+                let recommendElement = RecommendModel.init(dic: recommend)
+                mallRecommends.append(recommendElement)
+            }
+        }
         
+        searchBarDescribe = (dic["searchBarDescribe"] as? String)!
         
+        let topPosterArray = dic["topPosters"] as? [NSDictionary]
+        if topPosterArray != nil {
+            for topPoster in topPosterArray! {
+                let topPosterElement = TopPoster.init(dic: topPoster)
+                topPosters.append(topPosterElement)
+            }
+        }
     }
     
 

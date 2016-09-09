@@ -71,6 +71,11 @@
 		806174B71D7D5B480051D11B /* HotPlayersItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806174B51D7D5B480051D11B /* HotPlayersItemCollectionViewCell.xib */; };
 		806174B91D7D74F30051D11B /* pic_btn_orange_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 806174B81D7D74F30051D11B /* pic_btn_orange_on.png */; };
 		806174BB1D7D7E130051D11B /* img_home_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 806174BA1D7D7E130051D11B /* img_home_new.png */; };
+		80627FDA1D8264E000B0980C /* MoviesMallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80627FD81D8264E000B0980C /* MoviesMallCollectionViewCell.swift */; };
+		80627FDB1D8264E000B0980C /* MoviesMallCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80627FD91D8264E000B0980C /* MoviesMallCollectionViewCell.xib */; };
+		80627FDE1D8268B500B0980C /* MoviesMallItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80627FDC1D8268B500B0980C /* MoviesMallItemCollectionViewCell.swift */; };
+		80627FDF1D8268B500B0980C /* MoviesMallItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80627FDD1D8268B500B0980C /* MoviesMallItemCollectionViewCell.xib */; };
+		80627FE51D82B99D00B0980C /* QDZColorExtensionUnity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80627FE41D82B99D00B0980C /* QDZColorExtensionUnity.swift */; };
 		8066AB791D81444C00D7D77A /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066AB781D81444C00D7D77A /* HomeModel.swift */; };
 		8066AB7B1D81478A00D7D77A /* RecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066AB7A1D81478A00D7D77A /* RecommendModel.swift */; };
 		806E8EC31CC727F6001D791E /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 806E8EC21CC727F6001D791E /* test.json */; };
@@ -175,6 +180,11 @@
 		806174B51D7D5B480051D11B /* HotPlayersItemCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotPlayersItemCollectionViewCell.xib; sourceTree = "<group>"; };
 		806174B81D7D74F30051D11B /* pic_btn_orange_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pic_btn_orange_on.png; sourceTree = "<group>"; };
 		806174BA1D7D7E130051D11B /* img_home_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_home_new.png; sourceTree = "<group>"; };
+		80627FD81D8264E000B0980C /* MoviesMallCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesMallCollectionViewCell.swift; sourceTree = "<group>"; };
+		80627FD91D8264E000B0980C /* MoviesMallCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoviesMallCollectionViewCell.xib; sourceTree = "<group>"; };
+		80627FDC1D8268B500B0980C /* MoviesMallItemCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesMallItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		80627FDD1D8268B500B0980C /* MoviesMallItemCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoviesMallItemCollectionViewCell.xib; sourceTree = "<group>"; };
+		80627FE41D82B99D00B0980C /* QDZColorExtensionUnity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QDZColorExtensionUnity.swift; sourceTree = "<group>"; };
 		8066AB781D81444C00D7D77A /* HomeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		8066AB7A1D81478A00D7D77A /* RecommendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendModel.swift; sourceTree = "<group>"; };
 		806E8EC21CC727F6001D791E /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = test.json; path = "时光网Swift/test.json"; sourceTree = "<group>"; };
@@ -426,6 +436,10 @@
 				806174B51D7D5B480051D11B /* HotPlayersItemCollectionViewCell.xib */,
 				806174A81D7D45330051D11B /* HotPlayersSecondCollectionViewCell.swift */,
 				806174A91D7D45330051D11B /* HotPlayersSecondCollectionViewCell.xib */,
+				80627FD81D8264E000B0980C /* MoviesMallCollectionViewCell.swift */,
+				80627FD91D8264E000B0980C /* MoviesMallCollectionViewCell.xib */,
+				80627FDC1D8268B500B0980C /* MoviesMallItemCollectionViewCell.swift */,
+				80627FDD1D8268B500B0980C /* MoviesMallItemCollectionViewCell.xib */,
 				80559EA81D77D98500823727 /* TimeFeaturedCollectionViewCell.swift */,
 				80559EA91D77D98500823727 /* TimeFeaturedCollectionViewCell.xib */,
 			);
@@ -442,6 +456,7 @@
 				80559EB31D78130C00823727 /* UIButton+Blocks.m */,
 				806174B01D7D58360051D11B /* QDZHorizontalScrollView.swift */,
 				805AB3931D7EA59B00E24FF9 /* QDZDateFormatterString.swift */,
+				80627FE41D82B99D00B0980C /* QDZColorExtensionUnity.swift */,
 				8098B8ED1CC781B700A6B8B8 /* Config */,
 			);
 			name = Unity;
@@ -576,6 +591,7 @@
 				806E8EF81CC75CD4001D791E /* lead_bg_logo.png in Resources */,
 				805337E31CC6022500C251E9 /* tab_discover02.png in Resources */,
 				805337B01CC5DB7300C251E9 /* LaunchScreen.storyboard in Resources */,
+				80627FDF1D8268B500B0980C /* MoviesMallItemCollectionViewCell.xib in Resources */,
 				806174BB1D7D7E130051D11B /* img_home_new.png in Resources */,
 				805AB39E1D7EADE500E24FF9 /* bt_solid_green_66.png in Resources */,
 				806E8EC31CC727F6001D791E /* test.json in Resources */,
@@ -604,6 +620,7 @@
 				805AB39C1D7EADD700E24FF9 /* bt_solid_orange_66.png in Resources */,
 				805337AD1CC5DB7300C251E9 /* Assets.xcassets in Resources */,
 				806174AB1D7D45330051D11B /* HotPlayersSecondCollectionViewCell.xib in Resources */,
+				80627FDB1D8264E000B0980C /* MoviesMallCollectionViewCell.xib in Resources */,
 				805338011CC61FC400C251E9 /* ShoppingViewController.xib in Resources */,
 				80559EAB1D77D98500823727 /* TimeFeaturedCollectionViewCell.xib in Resources */,
 			);
@@ -678,11 +695,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80627FDE1D8268B500B0980C /* MoviesMallItemCollectionViewCell.swift in Sources */,
 				805338041CC61FD200C251E9 /* DiscoverViewController.swift in Sources */,
 				805337F51CC61F1A00C251E9 /* MainNavigationViewController.swift in Sources */,
 				806174B61D7D5B480051D11B /* HotPlayersItemCollectionViewCell.swift in Sources */,
 				80F37CB71CCF0A63000AFB26 /* PosterDetailViewController.swift in Sources */,
 				8098B8F11CC786AD00A6B8B8 /* Config.swift in Sources */,
+				80627FE51D82B99D00B0980C /* QDZColorExtensionUnity.swift in Sources */,
 				805337A61CC5DB7300C251E9 /* AppDelegate.swift in Sources */,
 				80354F0F1CC65A0A000BFC7E /* TopPoster.swift in Sources */,
 				806174A51D7D17BD0051D11B /* HotMovieModel.swift in Sources */,
@@ -690,6 +709,7 @@
 				805337D61CC5E56800C251E9 /* MainTabBarViewController.swift in Sources */,
 				8088D1FF1D755E45001687D8 /* NavigationBarAwesome.swift in Sources */,
 				805337FC1CC61FB000C251E9 /* BookTicketsViewController.swift in Sources */,
+				80627FDA1D8264E000B0980C /* MoviesMallCollectionViewCell.swift in Sources */,
 				806174B11D7D58360051D11B /* QDZHorizontalScrollView.swift in Sources */,
 				805338161CC6384E00C251E9 /* BaseViewController.swift in Sources */,
 				80354F111CC65AE1000BFC7E /* GotoPage.swift in Sources */,

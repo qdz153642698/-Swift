@@ -12,12 +12,16 @@ class HomeViewController: BaseViewController ,UIScrollViewDelegate,UICollectionV
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var topLayout: NSLayoutConstraint!
-    var topPosterArray = [TopPoster]()
+    var homeModel : HomeModel?
     let TimeFeaturedCollectionCell = "TimeFeaturedCollectionCell"
     let TopPostersCollectionElementCell = "TopPostersCollectionElementCell"
     let SalingTicketsCollectionCell = "SalingTicketsCollectionCell"
     let HotPlayersCollectionCell = "HotPlayersCollectionCell"
     let HotPlayersSecondCollectionCell = "HotPlayersSecondCollectionCell"
+    let CollectionElementKindHeaderClass = "CollectionElementKindHeaderClass"
+    let CollectionElementKindFooterClass = "CollectionElementKindFooterClass"
+    let MoviesMallCollectionCell = "MoviesMallCollectionCell"
+    let MoviesMallItemCollectionCell = "MoviesMallItemCollectionCell"
     var timerScrollView : TimerScrollView?
     var pageIndex : Int = 0
     var hotMovies : HotMovies?
@@ -33,6 +37,7 @@ class HomeViewController: BaseViewController ,UIScrollViewDelegate,UICollectionV
         super.viewDidLoad()
         
         //导航栏随视图拖动改变北京颜色
+        self.collectionView.backgroundColor = ColorWithRGB(r: 243, g: 243, b: 243, alpha: 1)
         self.scrollViewDidScroll(self.collectionView)
         self.navigationController?.navigationBar.shadowImage = UIImage.init()
         
@@ -42,21 +47,20 @@ class HomeViewController: BaseViewController ,UIScrollViewDelegate,UICollectionV
 
         let topPosterNib : UINib = UINib.init(nibName: "TopPostersCollectionReusableView", bundle: nil)
         self.collectionView.registerNib(topPosterNib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: TopPostersCollectionElementCell)
-        
         let salingTicketsNib : UINib = UINib.init(nibName: "SalingTicketsCollectionViewCell", bundle: nil)
         self.collectionView.registerNib(salingTicketsNib, forCellWithReuseIdentifier: SalingTicketsCollectionCell)
-        
         let hotPlayersNib : UINib = UINib.init(nibName: "HotPlayersCollectionViewCell", bundle: nil)
         self.collectionView.registerNib(hotPlayersNib, forCellWithReuseIdentifier: HotPlayersCollectionCell)
-        
         let hotPlayersSecondNib : UINib = UINib.init(nibName: "HotPlayersSecondCollectionViewCell", bundle: nil)
         self.collectionView.registerNib(hotPlayersSecondNib, forCellWithReuseIdentifier: HotPlayersSecondCollectionCell)
-        
         let timeFeaturedNib : UINib = UINib.init(nibName: "TimeFeaturedCollectionViewCell", bundle: nil)
         self.collectionView.registerNib(timeFeaturedNib, forCellWithReuseIdentifier: TimeFeaturedCollectionCell)
-        
-        //从本地加载数据（有空再换成网络请求）
-//        loadDataHotPlayersFromLocaJson()   
+        self.collectionView.registerClass(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: CollectionElementKindHeaderClass)
+        self.collectionView.registerClass(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: CollectionElementKindFooterClass)
+        let moviesMallNib : UINib = UINib.init(nibName: "MoviesMallCollectionViewCell", bundle: nil)
+        self.collectionView.registerNib(moviesMallNib, forCellWithReuseIdentifier: MoviesMallCollectionCell)
+        let moviesMallItemNib : UINib = UINib.init(nibName: "MoviesMallItemCollectionViewCell", bundle: nil)
+        self.collectionView.registerNib(moviesMallItemNib, forCellWithReuseIdentifier: MoviesMallItemCollectionCell)
         
         //(topPoster)
         loadDataFromNetwork()
@@ -70,22 +74,7 @@ class HomeViewController: BaseViewController ,UIScrollViewDelegate,UICollectionV
         self.navigationController?.navigationBar.reset()
     }
     
-    func loadDataTopPostersFromLocaJson() {
-        let path = NSBundle.mainBundle().pathForResource("test", ofType: "json")
-        let data = NSData(contentsOfFile: path!)
-        if data != nil {
-            let dictionary : NSDictionary = (try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers)) as! NSDictionary
-            let array = dictionary["topPosters"] as! NSArray
-            for dic in array{
-                let topPosterModel = TopPoster.init(dic: (dic as! NSDictionary))
-                print(topPosterModel.url)
-                topPosterArray.append(topPosterModel)
-            }
-        }
-        
-        self.collectionView.reloadData()
-    }
-    
+    //加载本地数据（防止时光网更改协议出现问题，暂不删除）
     func loadDataHotPlayersFromLocaJson(){
         let path : String = NSBundle.mainBundle().pathForResource("HotPlayers", ofType: "json")!
         let data = NSData(contentsOfFile: path)
@@ -96,6 +85,27 @@ class HomeViewController: BaseViewController ,UIScrollViewDelegate,UICollectionV
         self.collectionView.reloadData()
     }
     
+    //网络请求
+    func loadDataFromNetwork() {
+        let dic = [String:String]()
+        let manager = SGNetWorkManager.shareInstance
+        manager.getDataTaskWithURL_params_completion("\(SGCommURL)/home/index.api?subSecondParam=3%7C20245003%2324%230,1%7C21900667%2324%231,6%7C20245005%2324%230,2%7C20245002%2324%230,7%7C20245006%2324%230,5%7C20245004%2324%230", params: dic, successCompletion: { (json) -> Void in
+                print("JSON : \(json)")
+            let code : Int = Int(json["code"] as! String)!
+            if Code(code) == true{
+                let data = json["data"] as? NSDictionary
+                if data != nil {
+                    self.homeModel = HomeModel.init(dic: data!)
+                    self.loadDataHotPlayersFromNetwork()
+                }
+            }
+            }) { (error) -> Void in
+                print("居然发生了错误")
+        }
+        
+    }
+    
+    //加载热映数据
     func loadDataHotPlayersFromNetwork(){
         let dic = [String:String]()
         let manager = SGNetWorkManager.shareInstance
@@ -108,30 +118,6 @@ class HomeViewController: BaseViewController ,UIScrollViewDelegate,UICollectionV
         }
         
     }
-    
-    //网络请求
-    func loadDataFromNetwork() {
-        let dic = [String:String]()
-        let manager = SGNetWorkManager.shareInstance
-        manager.getDataTaskWithURL_params_completion("\(SGCommURL)/home/index.api?subSecondParam=3%7C20245003%2324%230,1%7C21900667%2324%231,6%7C20245005%2324%230,2%7C20245002%2324%230,7%7C20245006%2324%230,5%7C20245004%2324%230", params: dic, successCompletion: { (json) -> Void in
-                print("JSON : \(json)")
-            let code : Int = Int(json["code"] as! String)!
-            if Code(code) == true{
-                let data = json["data"] as! NSDictionary
-                let array = data["topPosters"] as! NSArray
-                for dic in array{
-                    let topPosterModel = TopPoster.init(dic: (dic as! NSDictionary))
-                    print(topPosterModel.url)
-                    self.topPosterArray.append(topPosterModel)
-                }
-                //HotPlayers
-                self.loadDataHotPlayersFromNetwork()
-            }
-            }) { (error) -> Void in
-                print("居然发生了错误")
-        }
-        
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -139,14 +125,16 @@ class HomeViewController: BaseViewController ,UIScrollViewDelegate,UICollectionV
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 2
+        return 3
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
             return 3
+        }else if section == 1 {
+            return 2
         }
-        return topPosterArray.count
+        return self.homeModel != nil ? (self.homeModel?.topPosters.count)! : 0
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -168,22 +156,40 @@ class HomeViewController: BaseViewController ,UIScrollViewDelegate,UICollectionV
                 }
                 return cell;
             }
+        }else if indexPath.section == 1 {
+            if indexPath.item == 0 {
+                let cell : MoviesMallCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(MoviesMallCollectionCell, forIndexPath: indexPath) as! MoviesMallCollectionViewCell
+                return cell
+            }else{
+                let cell : MoviesMallItemCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(MoviesMallItemCollectionCell, forIndexPath: indexPath) as! MoviesMallItemCollectionViewCell
+                cell.mallArray = self.homeModel?.mallRecommends
+                return cell
+            }
         }
         let cell : TimeFeaturedCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(TimeFeaturedCollectionCell, forIndexPath: indexPath) as! TimeFeaturedCollectionViewCell
-        cell.setPoster(self.topPosterArray[indexPath.row])
+        cell.setPoster((self.homeModel?.topPosters[indexPath.item])!)
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        weak var weakSelf = self
-        let cell : TopPostersCollectionReusableView =  collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: TopPostersCollectionElementCell, forIndexPath: indexPath) as! TopPostersCollectionReusableView
-        cell.posters = self.topPosterArray
-        cell.pageIndex = pageIndex
-        cell.timerScrollView.timerDelegate = self
-        cell.searchButton.handleWithBlock {
-            weakSelf?.searchButtonAction()
+        if indexPath.section == 0 && kind == UICollectionElementKindSectionHeader {
+            weak var weakSelf = self
+            let cell : TopPostersCollectionReusableView =  collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: TopPostersCollectionElementCell, forIndexPath: indexPath) as! TopPostersCollectionReusableView
+            cell.posters = self.homeModel?.topPosters
+            cell.searchButtonText = self.homeModel?.searchBarDescribe
+            cell.pageIndex = pageIndex
+            cell.timerScrollView.timerDelegate = self
+            cell.searchButton.handleWithBlock {
+                weakSelf?.searchButtonAction()
+            }
+            return cell
+        }else if kind == UICollectionElementKindSectionHeader{
+            let view : UICollectionReusableView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: CollectionElementKindHeaderClass, forIndexPath: indexPath)
+            return view
+        }else{
+            let view : UICollectionReusableView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionFooter, withReuseIdentifier: CollectionElementKindFooterClass, forIndexPath: indexPath)
+            return view
         }
-        return cell
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -193,6 +199,8 @@ class HomeViewController: BaseViewController ,UIScrollViewDelegate,UICollectionV
             }else{
                 return CGSizeMake(KScreenWidth, 225)
             }
+        }else if indexPath.section == 1 {
+            return indexPath.item == 0 ? CGSizeMake(KScreenWidth, 45.0) : CGSizeMake(KScreenWidth, 325.0)
         }
         
         return CGSizeMake(KScreenWidth, 200)
@@ -202,7 +210,7 @@ class HomeViewController: BaseViewController ,UIScrollViewDelegate,UICollectionV
         if section == 0 {
             return CGSizeMake(KScreenWidth, 168.0)
         }else{
-            return CGSizeMake(KScreenWidth, 0.1)
+            return CGSizeMake(KScreenWidth, 10.0)
         }
     }
     
@@ -228,10 +236,10 @@ class HomeViewController: BaseViewController ,UIScrollViewDelegate,UICollectionV
     
     func tapActionIndexOfPage(index: Int) {
         print("点击区域：\(index)")
-        let topPster = topPosterArray[index]
-        print("\(topPster.gotoPage?.url)")
+        let topPster = self.homeModel?.topPosters[index]
+        print("\(topPster!.gotoPage?.url)")
         let posterVC = PosterDetailViewController(nibName: "PosterDetailViewController", bundle: nil)
-        posterVC.url = (topPster.gotoPage?.url)!
+        posterVC.url = (topPster!.gotoPage?.url)!
         self.navigationController?.pushViewController(posterVC, animated: true)
     }
     

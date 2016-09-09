@@ -13,6 +13,7 @@ class HotPlayersSecondCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var comingMovieButton: UIButton!
     @IBOutlet weak var cinemasButton: UIButton!
     @IBOutlet weak var heightLayout: NSLayoutConstraint!
+    @IBOutlet weak var bottomHeightLayout: NSLayoutConstraint!
     
     var comingMoviewText : String?
     var cinemasText : String?
@@ -36,6 +37,7 @@ class HotPlayersSecondCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         heightLayout.constant = 0.5
+        bottomHeightLayout.constant = 0.5
     }
 
     

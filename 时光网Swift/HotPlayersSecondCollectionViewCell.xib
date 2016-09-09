@@ -46,6 +46,13 @@
                             <constraint firstAttribute="height" constant="1" id="nmq-P0-vJS"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KXF-GJ-2VJ">
+                        <rect key="frame" x="0.0" y="44" width="320" height="1"/>
+                        <color key="backgroundColor" white="0.77321477520000004" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Qgk-zT-Xhy"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
@@ -54,8 +61,10 @@
                 <constraint firstItem="l5I-fV-dKz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="8hw-5H-Qxg"/>
                 <constraint firstItem="Kyu-CY-UEK" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="CIf-rz-bCM"/>
                 <constraint firstAttribute="trailing" secondItem="TfW-kH-W6V" secondAttribute="trailing" id="EjN-mT-Zrl"/>
+                <constraint firstItem="KXF-GJ-2VJ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Ilv-EA-F2Z"/>
                 <constraint firstItem="BBE-z7-iwt" firstAttribute="leading" secondItem="l5I-fV-dKz" secondAttribute="trailing" id="JJz-Vl-T0p"/>
                 <constraint firstItem="BBE-z7-iwt" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="NK9-fn-rzL"/>
+                <constraint firstAttribute="trailing" secondItem="KXF-GJ-2VJ" secondAttribute="trailing" id="OSp-py-hRg"/>
                 <constraint firstAttribute="trailing" secondItem="BBE-z7-iwt" secondAttribute="trailing" id="aT8-pB-Okh"/>
                 <constraint firstItem="l5I-fV-dKz" firstAttribute="width" secondItem="BBE-z7-iwt" secondAttribute="width" id="bPn-hz-BbB"/>
                 <constraint firstAttribute="bottom" secondItem="l5I-fV-dKz" secondAttribute="bottom" id="dUf-gq-Iwe"/>
@@ -63,9 +72,11 @@
                 <constraint firstItem="TfW-kH-W6V" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="epb-9k-L00"/>
                 <constraint firstItem="l5I-fV-dKz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jvT-S1-aPk"/>
                 <constraint firstAttribute="bottom" secondItem="BBE-z7-iwt" secondAttribute="bottom" id="uHL-Ps-SAZ"/>
+                <constraint firstAttribute="bottom" secondItem="KXF-GJ-2VJ" secondAttribute="bottom" id="vKt-MB-Iq9"/>
                 <constraint firstItem="TfW-kH-W6V" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="yeB-b0-vvZ"/>
             </constraints>
             <connections>
+                <outlet property="bottomHeightLayout" destination="Qgk-zT-Xhy" id="zlR-k8-wX2"/>
                 <outlet property="cinemasButton" destination="BBE-z7-iwt" id="vvL-o9-Dyf"/>
                 <outlet property="comingMovieButton" destination="l5I-fV-dKz" id="mqI-U1-scO"/>
                 <outlet property="heightLayout" destination="nmq-P0-vJS" id="mbd-IV-Fml"/>

@@ -12,11 +12,20 @@ class TopPostersCollectionReusableView: UICollectionReusableView {
 
     @IBOutlet weak var timerScrollView: TimerScrollView!
     @IBOutlet weak var searchButton: UIButton!
-    var posters : [TopPoster]? = nil{
+    var posters : [TopPoster]?{
+        didSet{
+            if posters != nil {
+                self.setNeedsLayout()
+            }
+        }
+    }
+    
+    var searchButtonText : String? = ""{
         didSet{
             self.setNeedsLayout()
         }
     }
+    
     var pageIndex : Int = 0{
         didSet{
             self.setNeedsLayout()
@@ -33,10 +42,11 @@ class TopPostersCollectionReusableView: UICollectionReusableView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        self.searchButton.setTitle(searchButtonText, forState: UIControlState.Normal)
         timerScrollView.resetTimerScrollView()
         
         var imgUrlArray = [String]()
-        for poster in posters! {
+        for poster in posters ?? [TopPoster]() {
             imgUrlArray.append(poster.img!)
         }
         

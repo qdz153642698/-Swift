@@ -47,18 +47,22 @@ class RecommendModel: NSObject {
     var titleColor : String = ""
     var titleSmall : String = ""
     var warmup : Int = 0
-    
+    var color : UIColor? = UIColor.blackColor()
     init(dic : NSDictionary) {
-//        contentID =
-//        endTime : Int = 0
-//        goodsId : Int = 0
-//        gotoPage : GotoPage?
-//        image : String = ""
-//        position : Int = 0
-//        startTime : Int = 0
-//        title : String = ""
-//        titleColor : String = ""
-//        titleSmall : String = ""
-//        warmup : Int = 0
+        contentID = (dic["contentId"] as? Int)!
+        endTime = (dic["endTime"] as? Int)!
+        goodsId = (dic["goodsId"] as? Int)!
+        let gotoPageDic = dic["gotoPage"] as? NSDictionary
+        gotoPage = GotoPage.init(dic: gotoPageDic!)
+        image = (dic["image"] as? String)!
+        position = (dic["position"] as? Int)!
+        startTime = (dic["startTime"] as? Int)!
+        title = (dic["title"] as? String)!
+        titleColor = (dic["titleColor"] as? String)!
+        titleSmall = (dic["titleSmall"] as? String)!
+        warmup = (dic["warmup"] as? Int)!
+        if title != "" {
+            color = UIColor.QDZ_Color_Conversion(titleColor)
+        }
     }
 }

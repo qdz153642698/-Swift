@@ -29,3 +29,11 @@ func Code(code:Int) -> Bool{
         return false
     }
 }
+
+func ColorFromRGB16Hex(value : UInt32) -> UIColor {
+    let red = ((value & 0xFF0000) >> 16) / 0xff
+    let green = ((value & 0x00FF00) >> 8) / 0xff
+    let blue = (value & 0x0000FF) / 0xff
+    let color = ColorWithRGB(r: CGFloat(red), g: CGFloat(green), b: CGFloat(blue), alpha: 1)
+    return color
+}

@@ -42,7 +42,7 @@ class MoviesMallItemCollectionViewCell: UICollectionViewCell {
             let mallImageView = self.viewWithTag(position) as? UIImageView
             if mallImageView != nil {
                 let url : NSURL = NSURL.init(string: recommend.image)!
-                mallImageView?.sd_setImageWithURL(url)
+                mallImageView?.sd_setImage(with: url as URL?!)
             }
             
             let title = self.viewWithTag(position + 10) as? UILabel
@@ -57,9 +57,6 @@ class MoviesMallItemCollectionViewCell: UICollectionViewCell {
             }
             
         }
-        
-        print(self.contentView.subviews)
-        
     }
 
 }

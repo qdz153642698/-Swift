@@ -11,16 +11,18 @@ import UIKit
 class QDZDateFormatterString: NSObject {
     
     func dateFormatterString(string : String) -> [String]?{
-        let dateFormat = NSDateFormatter.init()
+        let dateFormat = DateFormatter.init()
         dateFormat.dateFormat = string
-        let dateString = dateFormat.stringFromDate(NSDate.init())
-        if string.containsString(":") == true {
-            return dateString.componentsSeparatedByString(":")
-        }else if string.containsString("-") == true{
-            return dateString.componentsSeparatedByString("-")
+        let dateString = dateFormat.string(from: NSDate.init() as Date)
+        if string.contains(":") == true {
+            return dateString.components(separatedBy: ":")
+        }else if string.contains("-") == true {
+            return dateString.components(separatedBy: "-")
         }
-        
         return nil
+
+        
+        
     }
     
 }

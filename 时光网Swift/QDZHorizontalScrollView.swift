@@ -43,34 +43,34 @@ class QDZHorizontalScrollView: UIView,UICollectionViewDataSource,UICollectionVie
             let flowLayout : UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
             flowLayout.minimumLineSpacing = 10
             flowLayout.minimumInteritemSpacing = 0.0
-            flowLayout.scrollDirection = UICollectionViewScrollDirection.Horizontal
+            flowLayout.scrollDirection = UICollectionViewScrollDirection.horizontal
             flowLayout.itemSize = itemSize!
-            flowLayout.footerReferenceSize = CGSizeMake(10, CGRectGetHeight(self.frame))
-            flowLayout.headerReferenceSize = CGSizeMake(10, CGRectGetHeight(self.frame))
-            collectionView = UICollectionView.init(frame: CGRectMake(0, 0, KScreenWidth, itemSize!.height), collectionViewLayout: flowLayout)
+            flowLayout.footerReferenceSize = CGSize.init(width: 10, height: self.frame.height)
+            flowLayout.headerReferenceSize = CGSize.init(width: 10, height: self.frame.height)
+            collectionView = UICollectionView.init(frame: CGRect.init(x: 0, y: 0, width: KScreenWidth, height: itemSize!.height), collectionViewLayout: flowLayout)
             collectionView!.showsVerticalScrollIndicator = false
             collectionView!.showsHorizontalScrollIndicator = false
             collectionView!.alwaysBounceHorizontal = true
             collectionView!.delegate = self
             collectionView!.dataSource = self
-            collectionView!.backgroundColor = UIColor.whiteColor()
+            collectionView!.backgroundColor = UIColor.white
             let nib : UINib = UINib.init(nibName: "HotPlayersItemCollectionViewCell", bundle: nil)
-            collectionView!.registerNib(nib, forCellWithReuseIdentifier: HotPlayersItemCollectionCell)
+            collectionView!.register(nib, forCellWithReuseIdentifier: HotPlayersItemCollectionCell)
             self.addSubview(collectionView!)
             self.collectionView?.reloadData()
         }
     }
     
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    private func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return (hotMovies?.count)!
     }
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell : HotPlayersItemCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(HotPlayersItemCollectionCell, forIndexPath: indexPath) as! HotPlayersItemCollectionViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell : HotPlayersItemCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: HotPlayersItemCollectionCell, for: indexPath as IndexPath) as! HotPlayersItemCollectionViewCell
         cell.movie = self.hotMovies?[indexPath.item]
         return cell
     }

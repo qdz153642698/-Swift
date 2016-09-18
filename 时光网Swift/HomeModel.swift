@@ -8,32 +8,21 @@
 
 import UIKit
 
-/*
- "advList": [
-    {
-         "gotoPage": {
-             "gotoType": "gotomovie",
-             "isGoH5": false,
-             "parameters": {
-                "movieId": 222522
-            },
-             "parameters1": {
-             "movieId": "222522"
-             },
-             "relatedId": 222522,
-             "relatedTypeUrl": "",
-             "url": "http://movie.mtime.com/222522/"
-         },
-         "img": "http://img31.mtime.cn/mg/2016/09/07/084742.28354044.jpg",
-         "url": "http://movie.mtime.com/222522/"
-     }
- ],
- 
- 
- */
 class HomeModel: NSObject {
     var advLists = [TopPoster]()
-//    var mallEntrys = [NSDictionary]()
+    var mallEntrys = [MallEntrysModel]()
+    lazy var mallEntrysDef : [NSDictionary] = {
+        var entrys = [NSDictionary]()
+        let entryOne = ["image" : "home_entry0","title" : "时光热榜"]
+        let entryTwo = ["image" : "home_entry1","title" : "全球票房榜"]
+        let entryThree = ["image" : "home_entry2","title" : "新片预告"]
+        let entryFour = ["image" : "home_entry3","title" : "猜电影"]
+        entrys.append(entryOne as NSDictionary)
+        entrys.append(entryTwo as NSDictionary)
+        entrys.append(entryThree as NSDictionary)
+        entrys.append(entryFour as NSDictionary)
+        return entrys
+    }()
     var mallRecommends = [RecommendModel]()
     var searchBarDescribe : String = ""
 //    var specialTopicList = [NSDictionary]()
@@ -66,6 +55,11 @@ class HomeModel: NSObject {
                 let topPosterElement = TopPoster.init(dic: topPoster)
                 topPosters.append(topPosterElement)
             }
+        }
+        
+        let mallEntryArray = dic["mallEntrys"] as? [NSDictionary]
+        if mallEntryArray != nil {
+            
         }
     }
     

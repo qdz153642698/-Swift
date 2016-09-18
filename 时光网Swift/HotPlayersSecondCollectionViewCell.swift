@@ -45,11 +45,11 @@ class HotPlayersSecondCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         
         if comingMoviewText != nil {
-            comingMovieButton.setTitle(comingMoviewText!, forState: UIControlState.Normal)
+            comingMovieButton.setTitle(comingMoviewText!, for: UIControlState.normal)
         }
         
         if cinemasText != nil {
-            cinemasButton.setTitle(cinemasText!, forState: UIControlState.Normal)
+            cinemasButton.setTitle(cinemasText!, for: UIControlState.normal)
         }
     }
     

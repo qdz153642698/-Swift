@@ -23,7 +23,7 @@ class HotPlayersCollectionViewCell: UICollectionViewCell{
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        qdzHorizontalScrollView.itemSize = CGSizeMake(104, 225)
+        qdzHorizontalScrollView.itemSize = CGSize.init(width: 104, height: 225)
         qdzHorizontalScrollView.hotMovies = hotMovies
     }
     

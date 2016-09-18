@@ -7,42 +7,50 @@
 //
 
 import UIKit
+
+enum TimerScrollViewCategory : Int{
+    case TopPosterCategory = 1
+    case AdvListPosterCategory
+}
+
 protocol TimerScrollViewDelegate {
-    func scrollToIndexOfPage(index:Int)
-    func tapActionIndexOfPage(index:Int)
+    func scrollToIndexOfPage(index:Int,category:TimerScrollViewCategory)
+    func tapActionIndexOfPage(index:Int,category:TimerScrollViewCategory)
 }
 
 class TimerScrollView: UIView,UIScrollViewDelegate {
     var count : Int = 0
-    var timer : NSTimer!
+    var timer : Timer!
     var timerDelegate:TimerScrollViewDelegate?
     var scrollView : UIScrollView?
     var pageCT : UIPageControl?
-    
+    var category : TimerScrollViewCategory = TimerScrollViewCategory.TopPosterCategory
     /*
     params:
         array : 图片URL集合
         contentOffSetIndex : 偏移位置
     */
-    func configScrollView(array:NSArray,contentOffsetIndex:Int){
+    func configScrollView(array:NSArray,contentOffsetIndex:Int,scrollViewCategory : TimerScrollViewCategory){
         count = array.count
+        category = scrollViewCategory
         
         self.clipsToBounds = false
-        self.backgroundColor = UIColor.whiteColor()
+        self.backgroundColor = UIColor.white
         
         scrollView = UIScrollView(frame: self.bounds)
         scrollView!.delegate = self
-        scrollView!.contentSize = CGSizeMake(CGFloat(array.count+2) * self.frame.size.width, self.frame.size.height)
-        scrollView!.pagingEnabled = true
+        scrollView?.backgroundColor = UIColor.green
+        scrollView!.contentSize = CGSize.init(width: CGFloat(array.count+2) * self.frame.size.width, height: self.frame.size.height)
+        scrollView!.isPagingEnabled = true
         scrollView!.showsHorizontalScrollIndicator = false
         scrollView!.showsVerticalScrollIndicator = false
         self.addSubview(scrollView!)
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction(_:)))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction(tap:)))
         scrollView?.addGestureRecognizer(tap)
         
-        createImageViews(array,contentOffsetIndex:contentOffsetIndex)
-        configPageControll(contentOffsetIndex)
+        createImageViews(array: array,contentOffsetIndex:contentOffsetIndex)
+        configPageControll(currentPage: contentOffsetIndex)
 
         timerBegin()
     }
@@ -60,19 +68,19 @@ class TimerScrollView: UIView,UIScrollViewDelegate {
             
             
             let URL : NSURL = NSURL(string: url)!
-            let imageView = UIImageView(frame: CGRectMake(CGFloat(i)*self.frame.size.width, 0, self.frame.size.width, self.frame.size.height))
+            let imageView = UIImageView(frame: CGRect.init(x: CGFloat(i)*self.frame.size.width, y: 0, width: self.frame.size.width, height: self.frame.size.height))
             //图片的加载需要依赖于框架，
-            imageView.sd_setImageWithURL(URL)
+            imageView.sd_setImage(with: URL as URL!)
             scrollView!.addSubview(imageView)
         }
         
-        scrollView!.contentOffset = CGPointMake(CGFloat(contentOffsetIndex+1)*self.frame.size.width, 0)
+        scrollView!.contentOffset = CGPoint.init(x: CGFloat(contentOffsetIndex+1)*self.frame.size.width, y: 0)
     }
     
     func configPageControll(currentPage:Int) {
-        pageCT = UIPageControl(frame: CGRectMake(0,self.frame.size.height-36-15,self.frame.size.width,15))
-        pageCT!.pageIndicatorTintColor = UIColor.grayColor()
-        pageCT!.currentPageIndicatorTintColor = UIColor.whiteColor()
+        pageCT = UIPageControl(frame: CGRect.init(x: 0, y: self.frame.size.height-(category==TimerScrollViewCategory.TopPosterCategory ? 36.0 : 0)-15, width: self.frame.size.width, height: 15))
+        pageCT!.pageIndicatorTintColor = UIColor.gray
+        pageCT!.currentPageIndicatorTintColor = UIColor.white
         pageCT!.numberOfPages = count
         pageCT!.currentPage = currentPage
         self.addSubview(pageCT!)
@@ -85,8 +93,8 @@ class TimerScrollView: UIView,UIScrollViewDelegate {
             timer = nil
         }
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(4, target: self, selector: #selector(timerRun(_:)), userInfo: nil, repeats: true)
-        NSRunLoop.mainRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
+        timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(timerRun(runTimer:)), userInfo: nil, repeats: true)
+        RunLoop.main.add(timer, forMode: RunLoopMode.commonModes)
     }
     
     //暂停
@@ -97,10 +105,10 @@ class TimerScrollView: UIView,UIScrollViewDelegate {
         }
     }
     
-    func timerRun(runTimer:NSTimer) {
+    func timerRun(runTimer:Timer) {
         let offsetX = scrollView!.contentOffset.x
-        UIView.animateWithDuration(0.4, animations: { () -> Void in
-                self.scrollView!.contentOffset = CGPointMake(offsetX+self.frame.size.width, 0)
+        UIView.animate(withDuration: 0.4, animations: { () -> Void in
+                self.scrollView!.contentOffset = CGPoint.init(x: offsetX+self.frame.size.width, y: 0)
             }) { (boolValue:Bool) -> Void in
                 self.resetContentOffset()
         }
@@ -114,45 +122,43 @@ class TimerScrollView: UIView,UIScrollViewDelegate {
         timerSuspend()
     }
     
-    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         timerSuspend()
     }
     
-    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         timerBegin()
     }
     
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         resetContentOffset()
     }
     
     func resetContentOffset(){
         if scrollView!.contentOffset.x < self.frame.size.width {
-            scrollView!.contentOffset = CGPointMake(self.frame.size.width*CGFloat(count), 0)
+            scrollView!.contentOffset = CGPoint.init(x: self.frame.size.width*CGFloat(count), y: 0)
         }
         
         if scrollView!.contentOffset.x > self.frame.size.width * CGFloat(count) {
-            scrollView!.contentOffset = CGPointMake(self.frame.size.width, 0)
+            scrollView!.contentOffset = CGPoint.init(x: self.frame.size.width, y: 0)
         }
         
         
         let vc = self.timerDelegate as! UIViewController
-        if vc.respondsToSelector(Selector("scrollToIndexOfPage:")) {
+//        if vc.respondsToSelector(Selector("scrollToIndexOfPage:category:")) {
             let index = Int((scrollView!.contentOffset.x - self.frame.size.width) / self.frame.size.width)
             pageCT?.currentPage = index
-            timerDelegate?.scrollToIndexOfPage(index)
-        }
-        
-        
+            timerDelegate?.scrollToIndexOfPage(index: index,category: category)
+//        }
     }
     
     
     func tapAction(tap:UITapGestureRecognizer){
         let vc = self.timerDelegate as! UIViewController
-        if vc.respondsToSelector(Selector("scrollToIndexOfPage:")) {
+//        if vc.respondsToSelector(Selector("scrollToIndexOfPage:category:")) {
             let index = Int((scrollView!.contentOffset.x - self.frame.size.width) / self.frame.size.width)
-            timerDelegate?.tapActionIndexOfPage(index)
-        }
+            timerDelegate?.tapActionIndexOfPage(index: index,category: category)
+//        }
         
     }
     

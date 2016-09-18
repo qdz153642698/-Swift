@@ -11,29 +11,25 @@ import UIKit
 class SGNetWorkManager: NSObject {
     class var shareInstance:SGNetWorkManager {
         struct Static {
-            static var onceToken : dispatch_once_t = 0
-            static var instance : SGNetWorkManager? = nil
+            static let instance : SGNetWorkManager = SGNetWorkManager()
         }
-        dispatch_once(&Static.onceToken) {
-            Static.instance = SGNetWorkManager()
-        }
-        return Static.instance!
+        return Static.instance
     }
     
-    func getDataTaskWithURL_params_completion(url:String,params:NSDictionary,successCompletion:((json:NSDictionary) -> Void)?,errorCompletion:((error:NSError) -> Void)?) {
+    func getDataTaskWithURL_params_completion(url:String,params:NSDictionary,successCompletion:((_ json:NSDictionary) -> Void)?,errorCompletion:((_ error:NSError) -> Void)?) {
         var json : NSDictionary = [:]
-        let manager = AFURLSessionManager(sessionConfiguration: NSURLSessionConfiguration.defaultSessionConfiguration())
+        let manager = AFURLSessionManager(sessionConfiguration: URLSessionConfiguration.default)
         let URL = NSURL(string: url)
-        let request = NSURLRequest(URL: URL!)
-        let dataTask = manager.dataTaskWithRequest(request) { (response, responseObject, error) -> Void in
+        let request = NSURLRequest(url: URL! as URL)
+        let dataTask = manager.dataTask(with: request as URLRequest) { (response, responseObject, error) -> Void in
             if error != nil {
                 if errorCompletion != nil {
-                    errorCompletion!(error:error!)
+                    errorCompletion!(error! as NSError)
                 }
             }else {
                 json = (responseObject as? NSDictionary)!
                 if successCompletion != nil {
-                    successCompletion!(json: json)
+                    successCompletion!(json as NSDictionary)
                 }
             }
             

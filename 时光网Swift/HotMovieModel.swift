@@ -113,7 +113,7 @@ class HotMovieModel: NSObject {
         type = dic["type"] as? String
         wantedCount = dic["wantedCount"] as? Int
         
-        let dateString : [String]? = QDZDateFormatterString().dateFormatterString("yyyy:MM:dd")
+        let dateString : [String]? = QDZDateFormatterString().dateFormatterString(string: "yyyy:MM:dd")
         if dateString != nil {
             //isTodatMovie
             if Int(dateString![0]) == rYear && Int(dateString![1]) == rMonth && Int(dateString![2]) == rDay {
@@ -122,7 +122,7 @@ class HotMovieModel: NSObject {
                 isTodayMovie = false
             }
             
-            if Int(dateString![0]) <= rYear && Int(dateString![1]) <= rMonth && Int(dateString![2]) < rDay {
+            if Int(dateString![0])! <= rYear! && Int(dateString![1])! <= rMonth! && Int(dateString![2])! < rDay! {
                 isAdvanceBooking = true
             }else{
                 isAdvanceBooking = false

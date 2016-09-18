@@ -12,13 +12,13 @@ class MainTabbarButton: UIButton {
     
     func createItem(itemName:String,itemImageNor:String,itemImageSel:String,index:Int,itemWidth:CGFloat) -> UIButton {
         
-        let button = UIButton(frame: CGRectMake(CGFloat(index)*itemWidth,0,itemWidth,49))
-        button.setTitle(itemName, forState: UIControlState.Normal)
-        button.setTitleColor(UIColor.blueColor(), forState: UIControlState.Selected)
-        button.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
-        button.setImage(UIImage(named: itemImageNor), forState: UIControlState.Normal)
-        button.setImage(UIImage(named: itemImageSel), forState: UIControlState.Selected)
-        button.titleLabel?.font = UIFont.systemFontOfSize(11.0)
+        let button = UIButton(frame: CGRect.init(x: CGFloat(index)*itemWidth, y: 0, width: itemWidth, height: 49))
+        button.setTitle(itemName, for: UIControlState.normal)
+        button.setTitleColor(UIColor.blue, for: UIControlState.selected)
+        button.setTitleColor(UIColor.gray, for: UIControlState.normal)
+        button.setImage(UIImage(named: itemImageNor), for: UIControlState.normal)
+        button.setImage(UIImage(named: itemImageSel), for: UIControlState.selected)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 11.0)
         button.titleEdgeInsets = UIEdgeInsetsMake(15, -128, -15, 16)
         button.imageEdgeInsets = UIEdgeInsetsMake(-5, 0, 5, 0)
         button.tag = index

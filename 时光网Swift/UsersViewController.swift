@@ -10,7 +10,7 @@ import UIKit
 
 class UsersViewController: BaseViewController {
 
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: "UsersViewController", bundle: nil)
     }
     

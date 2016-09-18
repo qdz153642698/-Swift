@@ -26,7 +26,7 @@ class TimeFeaturedCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         let url : NSURL = NSURL.init(string: (self.topPoster?.img)!)!
-        self.posterImageView.sd_setImageWithURL(url)
+        self.posterImageView.sd_setImage(with: url as URL!)
     }
     
     

@@ -36,11 +36,11 @@ class SalingTicketsCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         //正在售票·北京
-        salingCityButton.setTitle(baseSalingCityButton! as String, forState: UIControlState.Normal)
+        salingCityButton.setTitle(baseSalingCityButton! as String, for: UIControlState.normal)
         
         //共50部门
         if movieButtonTitle != nil {
-            moviesButton.setTitle(String(movieButtonTitle!), forState: UIControlState.Normal)
+            moviesButton.setTitle(String(movieButtonTitle!), for: UIControlState.normal)
         }
         
     }

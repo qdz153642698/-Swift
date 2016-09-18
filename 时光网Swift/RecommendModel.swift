@@ -47,7 +47,7 @@ class RecommendModel: NSObject {
     var titleColor : String = ""
     var titleSmall : String = ""
     var warmup : Int = 0
-    var color : UIColor? = UIColor.blackColor()
+    var color : UIColor? = UIColor.black
     init(dic : NSDictionary) {
         contentID = (dic["contentId"] as? Int)!
         endTime = (dic["endTime"] as? Int)!
@@ -62,7 +62,7 @@ class RecommendModel: NSObject {
         titleSmall = (dic["titleSmall"] as? String)!
         warmup = (dic["warmup"] as? Int)!
         if title != "" {
-            color = UIColor.QDZ_Color_Conversion(titleColor)
+            color = UIColor.QDZ_Color_Conversion(Color_Value: titleColor as NSString)
         }
     }
 }

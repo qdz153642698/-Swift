@@ -20,47 +20,46 @@ extension UINavigationBar {
     
     func qdz_setBackgroundColor(backgroundColor:UIColor){
         if self.overlay() == nil {
-            self.setBackgroundImage(UIImage.init(), forBarMetrics: UIBarMetrics.Default)
-            let overView = UIView.init(frame: CGRectMake(0, -20, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds)+20))
-            self.setOverlay(overView)
-            self.overlay()?.userInteractionEnabled = true
-            self.overlay()?.autoresizingMask = [UIViewAutoresizing.FlexibleWidth , UIViewAutoresizing.FlexibleHeight]
-            self.insertSubview(self.overlay()!, atIndex: 0)
+            self.setBackgroundImage(UIImage.init(), for: UIBarMetrics.default)
+            let overView = UIView.init(frame: CGRect.init(x: 0, y: -20, width: self.bounds.width, height: self.bounds.height+20))
+            self.setOverlay(overlay: overView)
+            self.overlay()?.isUserInteractionEnabled = true
+            self.overlay()?.autoresizingMask = [UIViewAutoresizing.flexibleWidth , UIViewAutoresizing.flexibleHeight]
+            self.insertSubview(self.overlay()!, at: 0)
         }
         self.overlay()?.backgroundColor = backgroundColor
     }
     
     func qdz_setElementsAlpha(alpha : CGFloat){
-        let leftViews : NSArray? = (self.valueForKey("_leftViews") as? NSArray)
-        leftViews?.enumerateObjectsUsingBlock { (view, i, stop) in
+        let leftViews : NSArray? = (self.value(forKey: "_leftViews") as? NSArray)
+        leftViews?.enumerateObjects({ (view, i, stop) in
             let viewAlpha = view as! UIView
             viewAlpha.alpha = alpha;
-        }
+        })
         
-        let rightViews : NSArray? = self.valueForKey("_rightViews") as? NSArray
-        rightViews?.enumerateObjectsUsingBlock { (view, i, stop) in
+        let rightViews : NSArray? = self.value(forKey: "_rightViews") as? NSArray
+        rightViews?.enumerateObjects({ (view, i, stop) in
             let viewAlpha = view as! UIView
             viewAlpha.alpha = alpha;
-        }
+        })
         
-        let titleView : UIView? = self.valueForKey("_titleView") as? UIView
+        let titleView : UIView? = self.value(forKey: "_titleView") as? UIView
         titleView?.alpha = alpha
         
         
         let subViews = self.subviews as NSArray
-        subViews.enumerateObjectsUsingBlock { (view, i, stop) in
+        subViews.enumerateObjects({ (view, i, stop) in
             let viewAlpha = view as! UIView
-            if viewAlpha.isKindOfClass(NSClassFromString("UINavigationItemView")!){
+            if viewAlpha.isKind(of: NSClassFromString("UINavigationItemView")!) {
                 viewAlpha.alpha = alpha
             }
-        }
-        
+        })
      }
     
     func reset() {
-        self.setBackgroundImage(nil, forBarMetrics: UIBarMetrics.Default)
+        self.setBackgroundImage(nil, for: UIBarMetrics.default)
         self.overlay()?.removeFromSuperview()
-        self.setOverlay(nil)
+        self.setOverlay(overlay: nil)
     }
     
 }

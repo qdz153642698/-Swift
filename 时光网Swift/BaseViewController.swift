@@ -24,24 +24,25 @@ class BaseViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 32.0/255.0, green: 131.0/255.0, blue: 198.0/255.0, alpha: 0.3)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
     }
-
+    
     func choseTitleView(type:ViewControllerType) {
         switch type {
         case .Home:
-            let titleView = UIView(frame: CGRectMake(0,0,100,20))
-            let titleImageView = UIImageView(image: UIImage(named: "pic_logo_mtime"))
-            titleImageView.frame = CGRectMake(20, 0, 60, 20)
+            let titleView = UIView(frame: CGRect(x:0,y:0,width:100,height:20))
+            let image = UIImage.init(named: "pic_logo_mtime")
+            let titleImageView = UIImageView.init(image: image)
+            titleImageView.frame = CGRect.init(x: 20, y: 0, width: 60, height: 20)
             titleView.addSubview(titleImageView)
             self.navigationItem.titleView = titleView
             break
         case .BookTickets:
-            let titleView = UIView(frame: CGRectMake(0,0,100,20))
-            let titleImageView = UIImageView(image: UIImage(named: "pic_logo_mtime"))
-            titleImageView.frame = CGRectMake(20, 0, 60, 20)
+            let titleView = UIView(frame: CGRect.init(x: 0, y: 0, width: 100, height: 20))
+            let image = UIImage.init(named: "pic_logo_mtime")
+            let titleImageView = UIImageView.init(image: image)
+            titleImageView.frame = CGRect.init(x: 20, y: 0, width: 60, height: 20)
             titleView.addSubview(titleImageView)
             self.navigationItem.titleView = titleView
 

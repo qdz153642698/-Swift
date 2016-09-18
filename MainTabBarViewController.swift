@@ -10,8 +10,6 @@ import UIKit
 
 class MainTabBarViewController: UITabBarController {
 
-    let KScreenWidth = UIScreen.mainScreen().bounds.width
-    let KScreenHeight = UIScreen.mainScreen().bounds.height
     var selectedButton : UIButton?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +24,7 @@ class MainTabBarViewController: UITabBarController {
     func createTabbarItem() {
         for subView in tabBar.subviews {
             let classStr = NSClassFromString("UITabBarButton")
-            if subView.isKindOfClass(classStr!) {
+            if subView.isKind(of: classStr!) {
                 subView.removeFromSuperview()
             }
         }
@@ -36,29 +34,29 @@ class MainTabBarViewController: UITabBarController {
         let itemImagesSel = ["tab_home02","tab_payticket02","tab_shop02","tab_discover02","user02"]
         let itemWidth = KScreenWidth / CGFloat(itemNames.count)
         let mainTabbarButton = MainTabbarButton()
-        let tabbarView = UIView(frame: CGRectMake(0,0,KScreenWidth,49))
-        tabbarView.backgroundColor = UIColor.whiteColor()
+        let tabbarView = UIView(frame: CGRect.init(x: 0, y: 0, width: KScreenWidth, height: 49))
+        tabbarView.backgroundColor = UIColor.white
         self.tabBar.addSubview(tabbarView)
         for i in 0...4 {
             let itemName = itemNames[i]
             let itemImageNor = itemImagesNor[i]
             let itemImageSel = itemImagesSel[i]
             
-            let button = mainTabbarButton.createItem(itemName, itemImageNor: itemImageNor, itemImageSel: itemImageSel,index: i,itemWidth:itemWidth)
+            let button = mainTabbarButton.createItem(itemName: itemName, itemImageNor: itemImageNor, itemImageSel: itemImageSel,index: i,itemWidth:itemWidth)
             tabbarView.addSubview(button)
             if i == 0 {
-                button.selected = true
+                button.isSelected = true
                 selectedButton = button
             }
-            button.addTarget(self, action: #selector(MainTabBarViewController.itemClickAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+            button.addTarget(self, action: #selector(self.itemClickAction(button:)), for: UIControlEvents.touchUpInside)
         }
         
     }
     
     func itemClickAction(button:UIButton) {
         if selectedButton != button {
-            selectedButton?.selected = false
-            button.selected = true
+            selectedButton?.isSelected = false
+            button.isSelected = true
             selectedButton = button
             self.selectedIndex = button.tag
         }

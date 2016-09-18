@@ -24,13 +24,13 @@ class PosterDetailViewController: DetailViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.topLayout.constant = iOS7_Before ? 0.0 : 64.0
-        self.choseTitleView(ViewControllerType.BookTickets)
+        self.choseTitleView(type: ViewControllerType.BookTickets)
         self.title = "嘿嘿"
-        let request = NSURLRequest(URL: NSURL(string: _url)!)
-        self.webView.loadRequest(request)
+        let request = NSURLRequest.init(url: NSURL.init(string: _url) as! URL)
+        self.webView.loadRequest(request as URLRequest)
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         print("从试图加载")
     }

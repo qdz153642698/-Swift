@@ -130,7 +130,7 @@ class HomeViewController: BaseViewController ,UIScrollViewDelegate,UICollectionV
         // Dispose of any resources that can be recreated.
     }
     
-    private func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 5
     }
     
